@@ -1992,7 +1992,9 @@ __webpack_require__.r(__webpack_exports__);
     //     this.getProducts({ params });
     // }
     redirectToModelPage: function redirectToModelPage(name) {
-      console.log(name);
+      this.$router.push({
+        path: "/model/".concat(name)
+      });
     }
   },
   data: function data() {
@@ -3670,6 +3672,55 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Drawer: _components_Drawer__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])('product', ['products']))
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/ModelPage.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/ModelPage.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      title: 'Карданные валы для Скании',
+      description: ''
+    };
+  },
+  mounted: function mounted() {// this.getPage();
+  },
+  methods: {// getPage () {
+    //     this.$axios.get('/api/delivery').then(res => {
+    //         this.page = res.data[0].body;
+    //     })
+    // }
+  }
 });
 
 /***/ }),
@@ -11509,7 +11560,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".logo-wrap p[data-v-1f42fb90] {\n  font-size: 18px;\n  text-transform: uppercase;\n  color: #212121;\n  margin-left: 20px;\n}\n.logo-wrap .logo-title[data-v-1f42fb90] {\n  font-family: \"Gilroy Light\", sans-serif;\n  letter-spacing: 20px;\n}\n.logo-wrap .logo-sub[data-v-1f42fb90] {\n  font-family: \"Gilroy Bold\", sans-serif;\n  letter-spacing: 4px;\n}\n.phone-wrap[data-v-1f42fb90],\n.address-wrap[data-v-1f42fb90] {\n  flex-wrap: nowrap;\n}\n.address[data-v-1f42fb90],\n.phone[data-v-1f42fb90] {\n  height: 62px;\n  min-width: 180px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  -webkit-box-align: start;\n          align-items: flex-start;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.map-logo[data-v-1f42fb90] {\n  margin-right: 28px;\n  margin-left: 14px;\n  margin-bottom: 4px;\n  margin-top: 4px;\n}\n.phone-logo[data-v-1f42fb90] {\n  margin-right: 10px;\n  margin-left: 14px;\n  margin-bottom: 4px;\n  margin-top: 4px;\n}\n.address-title[data-v-1f42fb90] {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 14px;\n  line-height: 1;\n}\n.address-subtitle[data-v-1f42fb90] {\n  font-size: 14px;\n  color: #ee6056;\n  cursor: pointer;\n}\n.phone-title[data-v-1f42fb90] {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 14px;\n  line-height: 1;\n  font-weight: 600;\n}\n.phone-subtitle[data-v-1f42fb90] {\n  font-size: 12px;\n}", ""]);
+exports.push([module.i, ".logo-wrap p[data-v-1f42fb90] {\n  font-size: 22px;\n  text-transform: uppercase;\n  color: #212121;\n  margin-bottom: 0;\n}\n.logo-wrap .logo-title[data-v-1f42fb90] {\n  font-family: \"Gilroy Light\", sans-serif;\n  letter-spacing: 4px;\n}\n.logo-wrap .logo-sub[data-v-1f42fb90] {\n  font-family: \"Gilroy Bold\", sans-serif;\n  letter-spacing: 4px;\n  text-transform: lowercase;\n  font-size: 16px;\n}\n.phone-wrap[data-v-1f42fb90],\n.address-wrap[data-v-1f42fb90] {\n  flex-wrap: nowrap;\n}\n.address[data-v-1f42fb90],\n.phone[data-v-1f42fb90] {\n  height: 62px;\n  min-width: 180px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  -webkit-box-align: start;\n          align-items: flex-start;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.map-logo[data-v-1f42fb90] {\n  margin-right: 28px;\n  margin-left: 14px;\n  margin-bottom: 4px;\n  margin-top: 4px;\n}\n.phone-logo[data-v-1f42fb90] {\n  margin-right: 10px;\n  margin-left: 14px;\n  margin-bottom: 4px;\n  margin-top: 4px;\n}\n.address-title[data-v-1f42fb90] {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 14px;\n  line-height: 1;\n}\n.address-subtitle[data-v-1f42fb90] {\n  font-size: 14px;\n  color: #ee6056;\n  cursor: pointer;\n}\n.phone-title[data-v-1f42fb90] {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 14px;\n  line-height: 1;\n  font-weight: 600;\n}\n.phone-subtitle[data-v-1f42fb90] {\n  font-size: 12px;\n}", ""]);
 
 // exports
 
@@ -40084,13 +40135,23 @@ var staticRenderFns = [
           _c(
             "div",
             {
-              staticClass: "row justify-content-center justify-content-sm-start"
+              staticClass:
+                "row justify-content-center justify-content-sm-start d-flex align-items-center"
             },
             [
+              _c("img", {
+                staticStyle: { height: "80px" },
+                attrs: { src: "/images/cardan.svg", alt: "cardan" }
+              }),
+              _vm._v(" "),
               _c("div", { staticClass: "logo-wrap" }, [
-                _c("p", { staticClass: "logo-title" }, [_vm._v("auto")]),
+                _c("p", { staticClass: "logo-title" }, [_vm._v("АВТО-КОСМОС")]),
                 _vm._v(" "),
-                _c("p", { staticClass: "logo-sub" }, [_vm._v("mustang")])
+                _c("p", { staticClass: "logo-sub" }, [
+                  _vm._v("Карданные валы "),
+                  _c("br"),
+                  _vm._v(" для европейских грузовиков")
+                ])
               ])
             ]
           )
@@ -42184,9 +42245,44 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    ModelPage\n")])
+  return _c("div", { staticClass: "container" }, [
+    _c("h1", [_vm._v(_vm._s(_vm.title))]),
+    _vm._v(" "),
+    _c("p", [
+      _vm._v(
+        "Компания Авто-Космос представляет карданные валы для Скании из европейских комплектующих - производства diesel-auto.\nКарданные валы на грузовики Скания имеет свою конструкцию. Сделано это скорее всего потому, что производитель хочет, чтобы покупали как можно больше оригинальные з/ч.\nКарданные валы скания делятся на 3 типа (3 вида крепления крестовины):"
+      )
+    ]),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ol", [
+      _c("li", [
+        _vm._v(
+          '\n                1 тип - (в основном авто с колесной формулой 4*2 и 6*2) крестовина "с бугелем" диаметр чашки 38 мм / 48 мм / 57 мм / - рис. 1, 2, 3, 4;\n            '
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _vm._v(
+          "\n                2 тип - (в основном авто с колёсной формулой 6*4 и 8*4 и т.д) крестовина 65 мм - 190 мм - рис. 5 и 6;\n            "
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _vm._v(
+          '\n                3 тип - с круглым фланцем (у Скании фланец "свой" диаметр окружности 208 мм от других грузовиков не подходит) с этим фланцем крестовна будет 65 мм (других нет) - рис. 7, 8, 9, 10.\n            '
+        )
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -62293,15 +62389,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ModelPage_vue_vue_type_template_id_1a88021f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ModelPage.vue?vue&type=template&id=1a88021f& */ "./resources/js/pages/ModelPage.vue?vue&type=template&id=1a88021f&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _ModelPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ModelPage.vue?vue&type=script&lang=js& */ "./resources/js/pages/ModelPage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ModelPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _ModelPage_vue_vue_type_template_id_1a88021f___WEBPACK_IMPORTED_MODULE_0__["render"],
   _ModelPage_vue_vue_type_template_id_1a88021f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -62315,6 +62413,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/pages/ModelPage.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/ModelPage.vue?vue&type=script&lang=js&":
+/*!*******************************************************************!*\
+  !*** ./resources/js/pages/ModelPage.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ModelPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ModelPage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/ModelPage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ModelPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

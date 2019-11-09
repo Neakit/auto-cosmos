@@ -101,7 +101,7 @@
             //     this.getProducts({ params });
             // }
             redirectToModelPage(name) {
-                console.log(name);
+                this.$router.push({ path: `/model/${name}` })
             }
         },
         data() {

@@ -3,10 +3,11 @@
         <div class="row header align-items-center">
             <!-- logo -->
             <div class="col-sm-3 col-md-3 col-lg-5 my-2">
-                <div class="row justify-content-center justify-content-sm-start">
+                <div class="row justify-content-center justify-content-sm-start d-flex align-items-center">
+                    <img src="/images/cardan.svg" alt="cardan" style="height: 80px">
                     <div class="logo-wrap">
-                        <p class="logo-title">auto</p>
-                        <p class="logo-sub">mustang</p>
+                        <p class="logo-title">АВТО-КОСМОС</p>
+                        <p class="logo-sub">Карданные валы <br/> для европейских грузовиков</p>
                     </div>
                 </div>
             </div>
@@ -50,18 +51,20 @@
 <style scoped lang="scss">
 .logo-wrap {
   p {
-    font-size: 18px;
+    font-size: 22px;
     text-transform: uppercase;
     color: #212121;
-    margin-left: 20px;
+    margin-bottom: 0;
   }
   .logo-title {
     font-family: 'Gilroy Light', sans-serif;
-    letter-spacing: 20px;
+    letter-spacing: 4px;
   }
   .logo-sub {
     font-family: 'Gilroy Bold', sans-serif;
     letter-spacing: 4px;
+    text-transform: lowercase;
+    font-size: 16px;
   }
 }
 .phone-wrap,
