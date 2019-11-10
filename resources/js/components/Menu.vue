@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
-            <div 
+            <div
                 v-for="(item, index) in menu"
                 :key="index"
                 class="menu-item col"
@@ -30,10 +30,10 @@ export default {
           title: 'Главная',
           to: '/'
         },
-        {
-          title: 'Магазин',
-          to: '/shop'
-        },
+        // {
+        //   title: 'Магазин',
+        //   to: '/shop'
+        // },
         {
           title: 'Скупка',
           to: '/buying'
@@ -47,8 +47,8 @@ export default {
           to: '/guarantee'
         },
         {
-          title: 'Блог',
-          to: '/blog'
+          title: 'Контакты',
+          to: '/contacts'
         }
       ]
     }

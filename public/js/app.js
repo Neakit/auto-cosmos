@@ -2122,10 +2122,11 @@ __webpack_require__.r(__webpack_exports__);
       menu: [{
         title: 'Главная',
         to: '/'
-      }, {
-        title: 'Магазин',
-        to: '/shop'
-      }, {
+      }, // {
+      //   title: 'Магазин',
+      //   to: '/shop'
+      // },
+      {
         title: 'Скупка',
         to: '/buying'
       }, {
@@ -2135,8 +2136,8 @@ __webpack_require__.r(__webpack_exports__);
         title: 'Гарантия',
         to: '/guarantee'
       }, {
-        title: 'Блог',
-        to: '/blog'
+        title: 'Контакты',
+        to: '/contacts'
       }]
     };
   }
@@ -11560,7 +11561,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".logo-wrap p[data-v-1f42fb90] {\n  font-size: 22px;\n  text-transform: uppercase;\n  color: #212121;\n  margin-bottom: 0;\n}\n.logo-wrap .logo-title[data-v-1f42fb90] {\n  font-family: \"Gilroy Light\", sans-serif;\n  letter-spacing: 4px;\n}\n.logo-wrap .logo-sub[data-v-1f42fb90] {\n  font-family: \"Gilroy Bold\", sans-serif;\n  letter-spacing: 4px;\n  text-transform: lowercase;\n  font-size: 16px;\n}\n.phone-wrap[data-v-1f42fb90],\n.address-wrap[data-v-1f42fb90] {\n  flex-wrap: nowrap;\n}\n.address[data-v-1f42fb90],\n.phone[data-v-1f42fb90] {\n  height: 62px;\n  min-width: 180px;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  -webkit-box-align: start;\n          align-items: flex-start;\n  -webkit-box-pack: justify;\n          justify-content: space-between;\n}\n.map-logo[data-v-1f42fb90] {\n  margin-right: 28px;\n  margin-left: 14px;\n  margin-bottom: 4px;\n  margin-top: 4px;\n}\n.phone-logo[data-v-1f42fb90] {\n  margin-right: 10px;\n  margin-left: 14px;\n  margin-bottom: 4px;\n  margin-top: 4px;\n}\n.address-title[data-v-1f42fb90] {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 14px;\n  line-height: 1;\n}\n.address-subtitle[data-v-1f42fb90] {\n  font-size: 14px;\n  color: #ee6056;\n  cursor: pointer;\n}\n.phone-title[data-v-1f42fb90] {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 14px;\n  line-height: 1;\n  font-weight: 600;\n}\n.phone-subtitle[data-v-1f42fb90] {\n  font-size: 12px;\n}", ""]);
+exports.push([module.i, ".logo-wrap p[data-v-1f42fb90] {\n  font-size: 22px;\n  text-transform: uppercase;\n  color: #212121;\n  margin-bottom: 0;\n}\n.logo-wrap .logo-title[data-v-1f42fb90] {\n  font-family: \"Gilroy Light\", sans-serif;\n  letter-spacing: 4px;\n}\n.logo-wrap .logo-sub[data-v-1f42fb90] {\n  font-family: \"Gilroy Bold\", sans-serif;\n  /*letter-spacing: 4px;*/\n  text-transform: lowercase;\n  font-size: 16px;\n}\n.phone-wrap[data-v-1f42fb90] {\n  flex-wrap: nowrap;\n}\n.map-link[data-v-1f42fb90] {\n  color: #cf6100;\n}\n.map-logo[data-v-1f42fb90] {\n  margin: 0 7px;\n}\n.phone-logo[data-v-1f42fb90] {\n  margin: 0 7px;\n}\n.address-title[data-v-1f42fb90] {\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 14px;\n  line-height: 1;\n}\n.address-subtitle[data-v-1f42fb90] {\n  font-size: 14px;\n  color: #ee6056;\n  cursor: pointer;\n}\n.phone-title[data-v-1f42fb90] {\n  cursor: pointer;\n  font-family: \"PT Sans\", sans-serif;\n  font-size: 14px;\n  line-height: 1;\n  font-weight: 600;\n  color: #000;\n  margin-bottom: 1rem;\n}\n.phone-subtitle[data-v-1f42fb90] {\n  color: #000;\n  font-size: 12px;\n}", ""]);
 
 // exports
 
@@ -40131,7 +40132,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "row header align-items-center" }, [
-        _c("div", { staticClass: "col-sm-3 col-md-3 col-lg-5 my-2" }, [
+        _c("div", { staticClass: "col-sm-3 col-md-3 col-lg-4 my-2" }, [
           _c(
             "div",
             {
@@ -40157,71 +40158,86 @@ var staticRenderFns = [
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "my-2 ml-auto col-sm-4 col-md-4 col-lg-3" }, [
-          _c(
-            "div",
-            {
-              staticClass:
-                "align-items-center justify-content-center address-wrap"
-            },
-            [
-              _c("img", {
-                staticClass: "map-logo d-sm-none d-md-block",
-                attrs: { src: "/images/icons/map-icon.svg" }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "address" }, [
+        _c("div", { staticClass: "col-sm-4 col-md-4 col-lg-4" }, [
+          _c("div", { staticClass: "map d-flex align-items-center" }, [
+            _c("img", {
+              staticClass: "map-logo",
+              attrs: { src: "/images/icons/map-icon.svg" }
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "d-flex flex-column justify-content-around h-100"
+              },
+              [
                 _c("p", { staticClass: "address-title" }, [
-                  _vm._v("Москва, Ленинградское шоссе, 238")
-                ])
-              ])
-            ]
-          )
+                  _vm._v("141400, Москва, Ленинградское шоссе, д. 236")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "map-link btn btn-link p-0 text-left" },
+                  [_vm._v("Показать на карте")]
+                )
+              ]
+            )
+          ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "my-2 col-sm-6 col-md-4 col-lg-3" }, [
           _c(
             "div",
-            {
-              staticClass:
-                "align-items-center justify-content-center phone-wrap"
-            },
+            { staticClass: "d-flex align-items-center justify-content-start" },
             [
               _c("img", {
-                staticClass: "phone-logo d-sm-none d-md-block",
+                staticClass: "phone-logo",
                 attrs: { src: "/images/icons/phone-icon.svg" }
               }),
               _vm._v(" "),
-              _c("div", { staticClass: "phone" }, [
-                _c("p", { staticClass: "phone-title" }, [
-                  _vm._v("8 925 502-33-10")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "phone-subtitle" }, [
-                  _vm._v("info@auto-mustang.ru")
-                ])
-              ])
+              _c(
+                "div",
+                {
+                  staticClass: "d-flex flex-column justify-content-around h-100"
+                },
+                [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "phone-title",
+                      attrs: { href: "tel:+79255065236" }
+                    },
+                    [_vm._v("8 925 506-52-36")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "phone-subtitle btn btn-link p-0 text-left",
+                      attrs: { href: "info@auto-cosmos.ru" }
+                    },
+                    [_vm._v("info@auto-cosmos.ru")]
+                  )
+                ]
+              )
             ]
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "social-wrap my-2col-1" }, [
-          _c(
-            "div",
-            {
-              staticClass: "justify-content-around justify-content-sm-between"
-            },
-            [
+        _c(
+          "div",
+          {
+            staticClass:
+              "col-1 d-flex justify-content-center align-items-center"
+          },
+          [
+            _c("a", { attrs: { href: "https://wa.me/79255065236" } }, [
               _c("img", {
                 attrs: { src: "/images/icons/whatsapp.png", alt: "social-icon" }
-              }),
-              _vm._v(" "),
-              _c("img", {
-                attrs: { src: "/images/icons/viber.png", alt: "social-icon" }
               })
-            ]
-          )
-        ])
+            ])
+          ]
+        )
       ])
     ])
   }
@@ -64776,8 +64792,8 @@ var actions = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/vagrant/code/auto-cosmos/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/vagrant/code/auto-cosmos/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/neakit/code/auto-cosmos/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/neakit/code/auto-cosmos/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

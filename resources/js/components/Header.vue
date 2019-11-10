@@ -2,47 +2,46 @@
     <div class="container">
         <div class="row header align-items-center">
             <!-- logo -->
-            <div class="col-sm-3 col-md-3 col-lg-5 my-2">
+            <div class="col-sm-3 col-md-3 col-lg-4 my-2">
                 <div class="row justify-content-center justify-content-sm-start d-flex align-items-center">
                     <img src="/images/cardan.svg" alt="cardan" style="height: 80px">
                     <div class="logo-wrap">
                         <p class="logo-title">АВТО-КОСМОС</p>
-                        <p class="logo-sub">Карданные валы <br/> для европейских грузовиков</p>
+                        <p class="logo-sub">Карданные валы <br> для европейских грузовиков</p>
                     </div>
                 </div>
             </div>
             <!-- address -->
-            <div class="my-2 ml-auto col-sm-4 col-md-4 col-lg-3">
-                <div class="align-items-center justify-content-center address-wrap">
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="map d-flex align-items-center">
                     <img
                         src="/images/icons/map-icon.svg"
-                        class="map-logo d-sm-none d-md-block"
+                        class="map-logo"
                     />
-                    <div class="address">
-                        <p class="address-title">Москва, Ленинградское шоссе, 238</p>
-                        <!-- <p class="address-subtitle">Показать на карте</p> -->
+                    <div class="d-flex flex-column justify-content-around h-100">
+                        <p class="address-title">141400, Москва, Ленинградское шоссе, д. 236</p>
+                        <button class="map-link btn btn-link p-0 text-left">Показать на карте</button>
                     </div>
                 </div>
             </div>
             <!-- phone -->
             <div class="my-2 col-sm-6 col-md-4 col-lg-3">
-                <div class="align-items-center justify-content-center phone-wrap">
+                <div class="d-flex align-items-center justify-content-start">
                     <img
                         src="/images/icons/phone-icon.svg"
-                        class="phone-logo d-sm-none d-md-block"
+                        class="phone-logo"
                     />
-                    <div class="phone">
-                        <p class="phone-title">8 925 502-33-10</p>
-                        <p class="phone-subtitle">info@auto-mustang.ru</p>
+                    <div class="d-flex flex-column justify-content-around h-100">
+                        <a class="phone-title" href="tel:+79255065236">8 925 506-52-36</a >
+                        <a class="phone-subtitle btn btn-link p-0 text-left" href="info@auto-cosmos.ru">info@auto-cosmos.ru</a>
                     </div>
                 </div>
             </div>
             <!-- social-icons -->
-            <div class="social-wrap my-2col-1">
-                <div class="justify-content-around justify-content-sm-between">
+            <div class="col-1 d-flex justify-content-center align-items-center">
+                <a href="https://wa.me/79255065236">
                     <img src="/images/icons/whatsapp.png" alt="social-icon" />
-                    <img src="/images/icons/viber.png" alt="social-icon" />
-                </div>
+                </a>
             </div>
         </div>
     </div>
@@ -62,35 +61,22 @@
   }
   .logo-sub {
     font-family: 'Gilroy Bold', sans-serif;
-    letter-spacing: 4px;
+    /*letter-spacing: 4px;*/
     text-transform: lowercase;
     font-size: 16px;
   }
 }
-.phone-wrap,
-.address-wrap {
+.phone-wrap {
   flex-wrap: nowrap;
 }
-.address,
-.phone {
-  height: 62px;
-  min-width: 180px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
+.map-link {
+    color: #cf6100
 }
 .map-logo {
-  margin-right: 28px;
-  margin-left: 14px;
-  margin-bottom: 4px;
-  margin-top: 4px;
+    margin: 0 7px;
 }
 .phone-logo {
-  margin-right: 10px;
-  margin-left: 14px;
-  margin-bottom: 4px;
-  margin-top: 4px;
+    margin: 0 7px;
 }
 .address-title {
   font-family: 'PT Sans', sans-serif;
@@ -103,12 +89,16 @@
   cursor: pointer;
 }
 .phone-title {
-  font-family: 'PT Sans', sans-serif;
-  font-size: 14px;
-  line-height: 1;
-  font-weight: 600;
+    cursor: pointer;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 1rem;
 }
 .phone-subtitle {
-  font-size: 12px;
+    color: #000;
+    font-size: 12px;
 }
 </style>
