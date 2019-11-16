@@ -6,6 +6,7 @@ const state = {
     orderModal: false,
     orderSuccess: false,
     productImageModal: false,
+    mapModal: false,
 
     destroyConfirmModal: false,
     destroyData: {},
@@ -50,6 +51,9 @@ const getters = {
     },
     productImageModal(state) {
         return state.productImageModal;
+    },
+    mapModal(state) {
+        return state.mapModal;
     }
 };
 

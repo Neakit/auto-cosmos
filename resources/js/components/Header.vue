@@ -20,7 +20,10 @@
                     />
                     <div class="d-flex flex-column justify-content-around h-100">
                         <p class="address-title">141400, Москва, Ленинградское шоссе, д. 236</p>
-                        <button class="map-link btn btn-link p-0 text-left">Показать на карте</button>
+                        <button 
+                            @click="toggleModal({ name: 'mapModal', bool: true })"
+                            class="map-link btn btn-link p-0 text-left"
+                        >Показать на карте</button>
                     </div>
                 </div>
             </div>
@@ -46,6 +49,17 @@
         </div>
     </div>
 </template>
+
+<script>
+import { mapMutations } from 'vuex'; 
+
+export default {
+    methods: {
+        ...mapMutations('modals', ['toggleModal'])
+    }    
+}
+
+</script>
 
 <style scoped lang="scss">
 .logo-wrap {

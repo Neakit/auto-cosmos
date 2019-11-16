@@ -6,7 +6,28 @@
         <main>
             <router-view></router-view>
         </main>
-        <Modal v-show="orderModal"/>
+
+        <modal 
+            name="chat"
+            draggable 
+            :pivotX="0.9" 
+            :pivotY="0.9" 
+            :width="280"
+            :height="420"
+        >
+            <CallbackChat />
+        </modal>
+
+        <div class="feedback-chat-button">
+            <img
+            @click="openChat"
+                src="/images/icons/phone-icon.svg"
+                class="phone-logo"
+            />
+        </div>
+        
+        <orderModal v-show="orderModal"/>
+        <mapModal v-if="mapModal"/>
         <OrderSuccess v-show="orderSuccess"/>
         <ProductImageModal v-show="productImageModal"/>
 <!--        <Footer />-->
@@ -16,20 +37,24 @@
 <script>
     import Menu from '../components/Menu';
     import Header from '../components/Header';
-    import Modal from '../components/OrderModal';
+    import orderModal from '../components/OrderModal';
+    import mapModal from '../components/mapModal';
     import OrderSuccess from '../components/OrderSuccess';
     import ProductImageModal from '../components/ProductImageModal';
     import Footer from '../components/Footer';
+    import CallbackChat from '../components/CallbackChat'
     import { mapActions, mapGetters } from 'vuex';
 
     export default {
         components: {
             Menu,
             Header,
-            Modal,
+            orderModal,
+            mapModal,
             Footer,
             OrderSuccess,
-            ProductImageModal
+            ProductImageModal,
+            CallbackChat
         },
         mounted() {
             this.getModels();
@@ -37,12 +62,20 @@
             this.getProducts();
         },
         computed: {
-            ...mapGetters('modals', ['orderModal', 'orderSuccess', 'productImageModal'])
+            ...mapGetters('modals', [
+                'orderModal', 
+                'orderSuccess', 
+                'productImageModal',
+                'mapModal'
+            ])
         },
         methods : {
             ...mapActions('category', ['getCategories']),
             ...mapActions('model', ['getModels']),
-            ...mapActions('product', ['getProducts'])
+            ...mapActions('product', ['getProducts']),
+            openChat() {
+                this.$modal.show('chat');
+            }
         }
     }
 </script>
@@ -50,6 +83,14 @@
 <style>
     .default-layout-wrapper {
         min-height: 100vh;
+    }
+    .feedback-chat-button {
+        padding: 8px;
+        position: fixed;
+        right: 5%;
+        bottom: 10%;
+        border-radius: 50%;
+        border: 1px solid black;
     }
 </style>
 
