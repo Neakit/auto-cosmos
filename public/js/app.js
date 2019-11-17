@@ -90075,7 +90075,8 @@ var privateHTTP = function privateHTTP(_ref) {
 
   if (token !== null) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default()({
-      baseURL: 'http://auto-mustang.ru',
+      // baseURL: 'http://auto-mustang.ru',
+      baseURL: 'http://auto-cosmos.test',
       // baseURL: 'http://127.0.0.1:8000',
       url: url,
       method: method,
@@ -90096,8 +90097,8 @@ var publicHTTP = function publicHTTP(_ref2) {
       _ref2$params = _ref2.params,
       params = _ref2$params === void 0 ? {} : _ref2$params;
   return axios__WEBPACK_IMPORTED_MODULE_0___default()({
-    baseURL: 'http://auto-mustang.ru',
-    // baseURL: 'http://127.0.0.1:8000',
+    // baseURL: 'http://auto-mustang.ru',
+    baseURL: 'http://auto-cosmos.test',
     method: method,
     url: url,
     params: params,
@@ -90690,7 +90691,8 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
               commit = _ref3.commit;
               _context2.next = 3;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios__WEBPACK_IMPORTED_MODULE_3___default()({
-                baseURL: 'http://auto-mustang.ru',
+                baseURL: 'http://auto-cosmos.test',
+                // baseURL: 'http://auto-mustang.ru',
                 // baseURL: 'http://127.0.0.1:8000',
                 method: 'get',
                 url: 'api/statuses/'

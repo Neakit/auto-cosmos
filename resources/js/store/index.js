@@ -68,7 +68,8 @@ export default new Vuex.Store({
             },
             async getStatuses({ commit }) {
                 const { data } = await axios({
-                    baseURL: 'http://auto-mustang.ru',
+                    baseURL: 'http://auto-cosmos.test',
+                    // baseURL: 'http://auto-mustang.ru',
                     // baseURL: 'http://127.0.0.1:8000',
                     method: 'get',
                     url: 'api/statuses/'
