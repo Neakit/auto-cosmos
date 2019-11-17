@@ -39,11 +39,11 @@
                 </div>
             </div>
             <div class="col-12">
-                <!-- <v-textarea
+                <textarea
                     outline
                     label="Ваша заявка"
                     v-model="desc"
-                ></v-textarea> -->
+                ></textarea>
             </div>
             <div class="col-2">
                 <button @click="submit()">
@@ -67,10 +67,10 @@ export default {
         }
     },
     methods: {
-        // ...mapActions(['addNewOrder']),
-        // submit() {
-        //     this.addNewOrder({ name: this.name, desc: this.desc });
-        // }
+        ...mapActions(['addNewOrder']),
+        submit() {
+            this.addNewOrder({ name: this.name, desc: this.desc });
+        }
     }
 }
 </script>

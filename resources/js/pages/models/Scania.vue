@@ -41,7 +41,7 @@
 		</div>
 
 		<div class="row my-3">
-			<div class="col-12" v-for="(product, index) in products" :key="index">
+			<div class="col-12" v-for="(product, index) in products.data" :key="index">
 				<ProductCardPlain :card="product" />
 			</div>
 		</div>
@@ -51,6 +51,7 @@
 
 <script>
 import ProductCardPlain from '../../components/ProductCardPlain'; 
+import { mapGetters } from 'vuex';
 
 	export default {
 		components: {
@@ -58,25 +59,11 @@ import ProductCardPlain from '../../components/ProductCardPlain';
 		},
 		data() {
 			return {
-				products: [
-					{
-						title: 'title',
-						model: {
-							title: 'Scania',
-							status: 'Новая'
-						},
-						status: 'новый',
-						description: 'description',
-						price: 2500,
-						id: 5,
-						images: [
-							'https://sdexpert.ru/upload/resize_cache/iblock/4f6/580_320_0/1.jpg',
-							'https://sdexpert.ru/upload/resize_cache/iblock/4f6/580_320_0/1.jpg',
-							'https://sdexpert.ru/upload/resize_cache/iblock/4f6/580_320_0/1.jpg'
-						]
-					}
-				]
+				// products: []
 			}
-		}		
+		},
+		computed: {
+			...mapGetters('product', ['products']) 
+		}	
 	}
 </script>

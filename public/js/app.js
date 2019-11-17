@@ -1892,6 +1892,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -1958,11 +1964,14 @@ __webpack_require__.r(__webpack_exports__);
       name: ""
     };
   },
-  methods: {// ...mapActions(['addNewOrder']),
-    // submit() {
-    //     this.addNewOrder({ name: this.name, desc: this.desc });
-    // }
-  }
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['addNewOrder']), {
+    submit: function submit() {
+      this.addNewOrder({
+        name: this.name,
+        desc: this.desc
+      });
+    }
+  })
 });
 
 /***/ }),
@@ -5387,6 +5396,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ProductCardPlain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/ProductCardPlain */ "./resources/js/components/ProductCardPlain.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -5439,26 +5455,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     ProductCardPlain: _components_ProductCardPlain__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
-    return {
-      products: [{
-        title: 'title',
-        model: {
-          title: 'Scania',
-          status: 'Новая'
-        },
-        status: 'новый',
-        description: 'description',
-        price: 2500,
-        id: 5,
-        images: ['https://sdexpert.ru/upload/resize_cache/iblock/4f6/580_320_0/1.jpg', 'https://sdexpert.ru/upload/resize_cache/iblock/4f6/580_320_0/1.jpg', 'https://sdexpert.ru/upload/resize_cache/iblock/4f6/580_320_0/1.jpg']
-      }]
+    return {// products: []
     };
-  }
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('product', ['products']))
 });
 
 /***/ }),
@@ -54584,7 +54590,28 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-12" }),
+          _c("div", { staticClass: "col-12" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.desc,
+                  expression: "desc"
+                }
+              ],
+              attrs: { outline: "", label: "Ваша заявка" },
+              domProps: { value: _vm.desc },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.desc = $event.target.value
+                }
+              }
+            })
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-2" }, [
             _c(
@@ -58876,7 +58903,7 @@ var render = function() {
     _c(
       "div",
       { staticClass: "row my-3" },
-      _vm._l(_vm.products, function(product, index) {
+      _vm._l(_vm.products.data, function(product, index) {
         return _c(
           "div",
           { key: index, staticClass: "col-12" },
@@ -90709,6 +90736,56 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
           }
         }
       });
+    },
+    addNewOrder: function addNewOrder(_ref5, _ref6) {
+      var commit, desc, name, url, qs, _ref7, status;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function addNewOrder$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              commit = _ref5.commit;
+              desc = _ref6.desc, name = _ref6.name;
+              url = 'https://api.trello.com/1/cards';
+              qs = {
+                name: name,
+                desc: desc,
+                pos: 'bottom',
+                idList: '5d063c6c414b4355e593aa79',
+                idMembers: '5c1ecd3be3f04424b80bb26b',
+                keepFromSource: 'all',
+                key: '8f8bdc084c598239903b33ddf9a06bca',
+                token: 'a59594d1e3fb7432f4d94d8bd1870535770fdd07c3490826b0359cbe09e4ac70'
+              }; // commit("setLoading", true);
+
+              _context3.prev = 4;
+              _context3.next = 7;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(url, qs));
+
+            case 7:
+              _ref7 = _context3.sent;
+              status = _ref7.status;
+
+              if (status === 200) {// console.log(data);
+                // commit("setLoading", false);
+                // commit("toggleOrderDialog", false);
+              }
+
+              _context3.next = 15;
+              break;
+
+            case 12:
+              _context3.prev = 12;
+              _context3.t0 = _context3["catch"](4);
+              // TODO: вывести сообщение об ошибке 
+              console.log(_context3.t0);
+
+            case 15:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, null, null, [[4, 12]]);
     }
   },
   modules: {
