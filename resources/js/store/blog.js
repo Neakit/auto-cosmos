@@ -54,7 +54,7 @@ const actions = {
     async getPosts({ commit }, payload) {
         const params = payload && payload.params || {};
         const { data } = await axios({
-            baseURL: 'http://auto-mustang.ru/',
+            baseURL: 'https://auto-mustang.ru/',
             method: 'get',
             url: 'api/posts/',
             params

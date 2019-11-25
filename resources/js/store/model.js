@@ -108,7 +108,7 @@ const actions = {
         const params = payload && payload.params || {};
         publicHTTP({
             method: 'get',
-            url: 'api/models/',
+            url: '/api/models',
             params
         }).then(res => {
             commit('setModels', res.data);

@@ -109,7 +109,7 @@ const actions = {
         const params = payload && payload.params || {};
         const { data } = await publicHTTP({
             method: 'get',
-            url: 'api/categories/',
+            url: '/api/categories',
             params
         });
         commit('setCategories', data);

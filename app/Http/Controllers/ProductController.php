@@ -57,8 +57,8 @@ class ProductController extends Controller
         if($request->hasFile('image')){
             $name = time()."_".$request->file('image')->getClientOriginalName();
             // $request->file('image')->move(public_path('images'), $name);
-            // $request->file('image')->move(base_path().'/public_html/images/products', $name);
-            $request->file('image')->move(base_path().'/public/images/products', $name);
+            $request->file('image')->move(base_path().'/public_html/images/products', $name);
+            // $request->file('image')->move(base_path().'/public/images/products', $name);
         }
         return response()->json(asset("images/products/$name"),201);
     }

@@ -91078,8 +91078,6 @@ var privateHTTP = function privateHTTP(_ref) {
   if (token !== null) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default()({
       baseURL: 'https://auto-cosmos.ru',
-      // baseURL: 'http://auto-cosmos.test',
-      // baseURL: 'http://127.0.0.1:8000',
       url: url,
       method: method,
       params: params,
@@ -91100,8 +91098,6 @@ var publicHTTP = function publicHTTP(_ref2) {
       params = _ref2$params === void 0 ? {} : _ref2$params;
   return axios__WEBPACK_IMPORTED_MODULE_0___default()({
     baseURL: 'https://auto-cosmos.ru',
-    // baseURL: 'http://auto-cosmos.test',
-    // baseURL: 'http://127.0.0.1:8000',
     method: method,
     url: url,
     params: params,
@@ -91210,7 +91206,7 @@ var actions = {
             params = payload && payload.params || {};
             _context.next = 4;
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios__WEBPACK_IMPORTED_MODULE_1___default()({
-              baseURL: 'http://auto-mustang.ru/',
+              baseURL: 'https://auto-mustang.ru/',
               method: 'get',
               url: 'api/posts/',
               params: params
@@ -91549,7 +91545,7 @@ var actions = {
             _context.next = 4;
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_services__WEBPACK_IMPORTED_MODULE_1__["publicHTTP"])({
               method: 'get',
-              url: 'api/categories/',
+              url: '/api/categories',
               params: params
             }));
 
@@ -91679,7 +91675,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
                 // baseURL: 'http://auto-mustang.ru',
                 // baseURL: 'http://127.0.0.1:8000',
                 method: 'get',
-                url: 'api/statuses/'
+                url: '/api/statuses'
               }));
 
             case 3:
@@ -92011,7 +92007,7 @@ var actions = {
             params = payload && payload.params || {};
             Object(_services__WEBPACK_IMPORTED_MODULE_1__["publicHTTP"])({
               method: 'get',
-              url: 'api/models/',
+              url: '/api/models',
               params: params
             }).then(function (res) {
               commit('setModels', res.data);
@@ -92282,7 +92278,7 @@ var actions = {
     var params = payload && payload.params || {};
     Object(_services__WEBPACK_IMPORTED_MODULE_1__["publicHTTP"])({
       method: 'get',
-      url: 'api/products/',
+      url: '/api/products',
       params: params
     }).then(function (res) {
       commit('setProducts', res.data);

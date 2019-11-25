@@ -82,7 +82,7 @@ const actions = {
         const params = payload && payload.params || {};
         publicHTTP({
             method: 'get',
-            url: 'api/products/',
+            url: '/api/products',
             params
         }).then(res => {
             commit('setProducts', res.data);

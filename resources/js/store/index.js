@@ -72,7 +72,7 @@ export default new Vuex.Store({
                     // baseURL: 'http://auto-mustang.ru',
                     // baseURL: 'http://127.0.0.1:8000',
                     method: 'get',
-                    url: 'api/statuses/'
+                    url: '/api/statuses'
                 });
                 commit('setStatuses', data);
             },
