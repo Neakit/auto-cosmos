@@ -58,17 +58,17 @@ export default new Vuex.Store({
             }
         },
         actions: {
-            async getModels({ commit }) {
-                const { data } = await axios({
-                    baseURL: 'http://auto-mustang.ru',
-                    method: 'get',
-                    url: 'api/models/'
-                });
-                commit('setModels', data);
-            },
+            // async getModels({ commit }) {
+            //     const { data } = await axios({
+            //         baseURL: 'https://auto-mustang.ru',
+            //         method: 'get',
+            //         url: 'api/models/'
+            //     });
+            //     commit('setModels', data);
+            // },
             async getStatuses({ commit }) {
                 const { data } = await axios({
-                    baseURL: 'http://auto-cosmos.test',
+                    baseURL: 'https://auto-cosmos.ru',
                     // baseURL: 'http://auto-mustang.ru',
                     // baseURL: 'http://127.0.0.1:8000',
                     method: 'get',

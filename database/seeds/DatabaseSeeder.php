@@ -19,11 +19,11 @@ class DatabaseSeeder extends Seeder
             // DeliveryTableSeeder::class,
             // GuaranteeTableSeeder::class,
             // PostTableSeeder::class,
-            // ProductsCategoriesTableSeeder::class,
-            // ProductsCurrenciesTableSeeder::class,
-            // ProductsModelTableSeeder::class,
-            // ProductsStatusTableSeeder::class,
-            // ProductsTableSeeder::class,
+            ProductsCategoriesTableSeeder::class,
+            ProductsCurrenciesTableSeeder::class,
+            ProductsModelTableSeeder::class,
+            ProductsStatusTableSeeder::class,
+            ProductsTableSeeder::class,
           ]);
     }
 }

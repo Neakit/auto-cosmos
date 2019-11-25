@@ -5,8 +5,8 @@ export const privateHTTP = ({ url, method, data = {}, params = {} }) => {
     const token = localStorage.getItem('bigStore.jwt');
     if(token !== null) {
          return axios({
-            // baseURL: 'http://auto-mustang.ru',
-            baseURL: 'http://auto-cosmos.test',
+            baseURL: 'https://auto-cosmos.ru',
+            // baseURL: 'http://auto-cosmos.test',
             // baseURL: 'http://127.0.0.1:8000',
             url,
             method,
@@ -22,8 +22,9 @@ export const privateHTTP = ({ url, method, data = {}, params = {} }) => {
 
 export const publicHTTP = ({ url, method, data = {}, params = {} }) => {
     return axios({
-        // baseURL: 'http://auto-mustang.ru',
-        baseURL: 'http://auto-cosmos.test',
+        baseURL: 'https://auto-cosmos.ru',
+        // baseURL: 'http://auto-cosmos.test',
+        // baseURL: 'http://127.0.0.1:8000',
         method,
         url,
         params,

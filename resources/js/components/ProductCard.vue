@@ -12,7 +12,7 @@
                 </div>
                 <div class="price row no-gutters justify-content-between align-items-center" >
                     <div>
-                        <p class="card-status">{{ card.status.title }}</p>
+                        <!-- <p class="card-status">{{ card.status.title }}</p> -->
                         <p class="card-price">{{ card.price }} ₽</p>
                     </div>
                     <router-link :to="`/product/${card.id}`" class="btn">Купить</router-link>

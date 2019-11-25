@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->integer('product_model_id');
             $table->integer('price');
-            $table->string('image');
+            $table->string('images')->default('[]');
             $table->integer('category_id');
             $table->integer('currency_id')->nullable();
             $table->integer('status_id');

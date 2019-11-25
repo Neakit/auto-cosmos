@@ -7,7 +7,7 @@
             <router-view></router-view>
         </main>
 
-        <modal 
+        <!-- <modal 
             name="chat"
             draggable 
             :pivotX="0.9" 
@@ -16,15 +16,15 @@
             :height="420"
         >
             <CallbackChat />
-        </modal>
+        </modal> -->
 
-        <div class="feedback-chat-button">
+        <!-- <div class="feedback-chat-button">
             <img
             @click="openChat"
                 src="/images/icons/phone-icon.svg"
                 class="phone-logo"
             />
-        </div>
+        </div> -->
         
         <orderModal v-show="orderModal"/>
         <mapModal v-if="mapModal"/>
@@ -57,8 +57,8 @@
             CallbackChat
         },
         mounted() {
-            this.getModels();
-            this.getCategories();
+            // this.getModels();
+            // this.getCategories();
             this.getProducts();
         },
         computed: {

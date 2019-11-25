@@ -13,7 +13,7 @@ class CreateProductStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_status', function (Blueprint $table) {
+        Schema::create('product_statuses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
             $table->integer('status_id');
@@ -28,6 +28,6 @@ class CreateProductStatusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_status');
+        Schema::dropIfExists('product_statuses');
     }
 }

@@ -17,6 +17,13 @@ import ModelPage from './pages/ModelPage';
 import Contacts from './pages/Contacts';
 // models info pages
 import Scania from './pages/models/Scania';
+import Man from './pages/models/Man';
+import Mercedes from './pages/models/Mercedes';
+import Iveco from './pages/models/Iveco';
+import Daf from './pages/models/Daf';
+import Renault from './pages/models/Renault';
+import Volvo from './pages/models/Volvo';
+import Kamaz from './pages/models/Kamaz';
 
 // admin pages
 import Login from './pages/admin/Login';
@@ -85,7 +92,43 @@ const router = new VueRouter({
                     path: '/model/Scania',
                     name: 'Scania',
                     component: Scania
-                }
+                },
+                {
+                    path: '/model/Man',
+                    name: 'Man',
+                    component: Man
+                },
+                {
+                    path: '/model/Mercedes',
+                    name: 'Mercedes',
+                    component: Mercedes
+                },
+                {
+                    path: '/model/Iveco',
+                    name: 'Iveco',
+                    component: Iveco
+                },
+                {
+                    path: '/model/Daf',
+                    name: 'Daf',
+                    component: Daf
+                },
+                {
+                    path: '/model/Renault',
+                    name: 'Renault',
+                    component: Renault
+                },
+                {
+                    path: '/model/Volvo',
+                    name: 'Volvo',
+                    component: Volvo
+                },
+                {
+                    path: '/model/Kamaz',
+                    name: 'Kamaz',
+                    component: Kamaz
+                },
+                
                 // {
                 //     path: '/model/:model',
                 //     name: 'modelPage',

@@ -14,18 +14,6 @@
                 <li class="nav-item">
                     <router-link class="nav-link" to="/admin/categories">Категории: {{ categories.length || 0 }}</router-link>
                 </li>
-                <li class="nav-item">
-                    <router-link class="nav-link" to="/admin/posts">Посты: {{ posts.data && posts.data.length || 0 }}</router-link>
-                </li>
-                <li class="nav-item">
-                    <router-link class="nav-link" to="/admin/guarantee">Гарантия</router-link>
-                </li>
-                <li class="nav-item">
-                    <router-link class="nav-link" to="/admin/delivery">Доставка</router-link>
-                </li>
-                <li class="nav-item">
-                    <router-link class="nav-link" to="/admin/buying">Скупка</router-link>
-                </li>
             </ul>
             <button type="button" class="btn btn-outline-dark" @click="clearAuth">Выйти</button>
         </nav>
@@ -53,13 +41,11 @@
             this.getModels();
             this.getCategories();
             this.getStatuses();
-            this.getPosts();
         },
         computed: {
-            ...mapGetters('category', ['categories']),
-            ...mapGetters('blog', ['posts']),
-            ...mapGetters('model', ['models']),
             ...mapGetters('product', ['products']),
+            ...mapGetters('model', ['models']),
+            ...mapGetters('category', ['categories']),
             ...mapGetters('modals', ['destroyConfirmModal']),
             ...mapGetters(['user']),
             auth() {
@@ -69,11 +55,8 @@
         methods: {
             ...mapActions('category', ['getCategories']),
             ...mapActions('model', ['getModels']),
-            ...mapActions('blog', ['getPosts']),
             ...mapActions('product', ['getProducts']),
-            ...mapActions([
-                'getStatuses'
-            ]),
+            ...mapActions(['getStatuses']),
             clearAuth() {
                 localStorage.removeItem("bigStore");
                 this.$router.push('/shop');

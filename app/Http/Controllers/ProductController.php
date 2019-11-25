@@ -37,7 +37,6 @@ class ProductController extends Controller
             'description' => $request->description,
             'product_model_id' => $request->product_model_id,
             'price' => $request->price,
-            'image' => $request->image,
             'images' => $request->images,
             'category_id' => $request->category_id,
             'status_id' => $request->status_id
