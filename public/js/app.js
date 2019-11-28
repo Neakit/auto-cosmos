@@ -12308,7 +12308,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.menu-item {\r\n  background-color: #cf6100;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-family: 'PT Sans', sans-serif;\r\n  font-size: 16px;\r\n  text-align: center;\r\n  padding: 16px;\r\n  cursor: pointer;\n}\n.menu-item__active {\r\n  background-color: #f17100;\n}\r\n", ""]);
+exports.push([module.i, "\n.menu-item {\n  background-color: #cf6100;\n  color: #fff;\n  text-transform: uppercase;\n  font-family: 'PT Sans', sans-serif;\n  font-size: 16px;\n  text-align: center;\n  padding: 16px;\n  cursor: pointer;\n}\n.menu-item__active {\n  background-color: #f17100;\n}\n", ""]);
 
 // exports
 
@@ -12536,7 +12536,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.default-layout-wrapper {\n    min-height: 100vh;\n}\n.feedback-chat-button {\n    padding: 8px;\n    position: fixed;\n    right: 5%;\n    bottom: 10%;\n    border-radius: 50%;\n    border: 1px solid black;\n}\n", ""]);
+exports.push([module.i, "\n.default-layout-wrapper {\n    min-height: 100vh;\n}\n.phone-logo {\n    width: 100%;\n    height: 100%;\n}\n.feedback-chat-button {\n    padding: 12px;\n    position: fixed;\n    right: 5%;\n    bottom: 10%;\n    border-radius: 50%;\n    background-color: #cf6100;\n    cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -92406,8 +92406,8 @@ var actions = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Neakit\Desktop\auto-cosmos\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Neakit\Desktop\auto-cosmos\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/neakit/code/auto-cosmos/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/neakit/code/auto-cosmos/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
