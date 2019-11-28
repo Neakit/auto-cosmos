@@ -19,8 +19,8 @@
         </modal> -->
 
         <!-- <div class="feedback-chat-button">
-            <img
-            @click="openChat"
+            <img 
+                @click="openChat"
                 src="/images/icons/phone-icon.svg"
                 class="phone-logo"
             />
@@ -84,13 +84,18 @@
     .default-layout-wrapper {
         min-height: 100vh;
     }
+    .phone-logo {
+        width: 100%;
+        height: 100%;
+    }
     .feedback-chat-button {
-        padding: 8px;
+        padding: 12px;
         position: fixed;
         right: 5%;
         bottom: 10%;
         border-radius: 50%;
-        border: 1px solid black;
+        background-color: #cf6100;
+        cursor: pointer;
     }
 </style>
 
