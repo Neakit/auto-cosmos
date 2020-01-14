@@ -51,7 +51,8 @@ export default {
             popupContent: "Москва, Ленинградское Шоссе, Д. 236",
             isScrollable: false,
             options: {
-                scrollWheelZoom: false
+                scrollWheelZoom: false,
+                zoom: 13
             }
         }
     },

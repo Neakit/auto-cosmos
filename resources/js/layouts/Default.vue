@@ -16,9 +16,9 @@
             :height="420"
         >
             <CallbackChat />
-        </modal> -->
+        </modal>
 
-        <!-- <div class="feedback-chat-button">
+        <div class="feedback-chat-button">
             <img 
                 @click="openChat"
                 src="/images/icons/phone-icon.svg"
@@ -80,7 +80,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .default-layout-wrapper {
         min-height: 100vh;
     }

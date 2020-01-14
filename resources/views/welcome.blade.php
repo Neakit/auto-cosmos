@@ -5,7 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{csrf_token()}}">
-        <title>auto-cosmos</title>
+        <title>Карданные Валы Для Европейских Грузовиков</title>
+        <meta name="description" lang="ru" content="Компания Авто-Космос представляет карданные валы из европейских комплектующих - производства diesel-auto" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="{{ mix('css/app.css') }}" type="text/css" rel="stylesheet"/>
     </head>
