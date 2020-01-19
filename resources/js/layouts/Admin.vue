@@ -38,14 +38,14 @@
         },
         mounted() {
             this.getProducts();
-            this.getModels();
-            this.getCategories();
-            this.getStatuses();
+            // this.getModels();
+            // this.getCategories();
         },
         computed: {
             ...mapGetters('product', ['products']),
             ...mapGetters('model', ['models']),
             ...mapGetters('category', ['categories']),
+
             ...mapGetters('modals', ['destroyConfirmModal']),
             ...mapGetters(['user']),
             auth() {
@@ -53,9 +53,9 @@
             }
         },
         methods: {
+            ...mapActions('product', ['getProducts']),
             ...mapActions('category', ['getCategories']),
             ...mapActions('model', ['getModels']),
-            ...mapActions('product', ['getProducts']),
             ...mapActions(['getStatuses']),
             clearAuth() {
                 localStorage.removeItem("bigStore");

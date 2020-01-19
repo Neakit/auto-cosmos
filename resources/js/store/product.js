@@ -78,6 +78,7 @@ const getters = {
 };
 
 const actions = {
+    
     getProducts({ commit }, payload) {
         const params = payload && payload.params || {};
         publicHTTP({
@@ -88,6 +89,7 @@ const actions = {
             commit('setProducts', res.data);
         })
     },
+
     async createProduct({ commit }) {
         const product = state.product;
         product.images = JSON.stringify(product.images);

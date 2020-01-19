@@ -23,7 +23,6 @@ class ProductsTableSeeder extends Seeder
                 "description_full" => "Lorem ipsum dolor sit amet, consectetur consequat.",
                 "price" => 200.10,
                 "category_id" => 1,
-                "currency_id" => 1,
                 "product_recommend" => false,
                 'images' => '[]',
                 'created_at' => new DateTime,

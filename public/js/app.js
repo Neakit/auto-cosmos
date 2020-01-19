@@ -3505,17 +3505,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     DestroyConfirmModal: _components_admin_DestroyConfirmModal__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   mounted: function mounted() {
-    this.getProducts();
-    this.getModels();
-    this.getCategories();
-    this.getStatuses();
+    this.getProducts(); // this.getModels();
+    // this.getCategories();
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('product', ['products']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('model', ['models']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('category', ['categories']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('modals', ['destroyConfirmModal']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['user']), {
     auth: function auth() {
       return this.$route.path !== "/admin/login";
     }
   }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('category', ['getCategories']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('model', ['getModels']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('product', ['getProducts']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['getStatuses']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('product', ['getProducts']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('category', ['getCategories']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])('model', ['getModels']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['getStatuses']), {
     clearAuth: function clearAuth() {
       localStorage.removeItem("bigStore");
       this.$router.push('/shop');
@@ -91410,8 +91408,8 @@ var privateHTTP = function privateHTTP(_ref) {
 
   if (token !== null) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default()({
-      baseURL: 'https://auto-cosmos.ru',
-      // baseURL: 'https://127.0.0.1:8000',
+      // baseURL: 'https://auto-cosmos.ru',
+      baseURL: 'http://127.0.0.1:8000',
       url: url,
       method: method,
       params: params,
@@ -91431,8 +91429,8 @@ var publicHTTP = function publicHTTP(_ref2) {
       _ref2$params = _ref2.params,
       params = _ref2$params === void 0 ? {} : _ref2$params;
   return axios__WEBPACK_IMPORTED_MODULE_0___default()({
-    baseURL: 'https://auto-cosmos.ru',
-    // baseURL: 'https://127.0.0.1:8000',
+    // baseURL: 'https://auto-cosmos.ru',
+    baseURL: 'http://127.0.0.1:8000',
     method: method,
     url: url,
     params: params,
