@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
-    
+
     public function index(Request $request)
     {
-        $results = Product::with(['category', 'model', 'status'])
+        $results = Product::with(['category', 'model'])
             ->where(function($q) use ($request){
                 if(isset($request->title)){
                     $q->where('title', 'like', "%" . urldecode($request->title) . "%");
@@ -39,7 +39,6 @@ class ProductController extends Controller
             'price' => $request->price,
             'images' => $request->images,
             'category_id' => $request->category_id,
-            'status_id' => $request->status_id
         ]);
 
 
@@ -63,7 +62,7 @@ class ProductController extends Controller
         return response()->json(asset("images/products/$name"),201);
     }
 
-    public function deleteFile(Request $request) 
+    public function deleteFile(Request $request)
     {
         $file_path = base_path().'/public_html/images/products/'.$request->name;
 

@@ -14,7 +14,6 @@ class Product extends Model
         'images',
         'product_model_id',
         'category_id',
-        'status_id'
     ];
 
     protected $hidden = [
