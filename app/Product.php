@@ -7,13 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'title',
-        'description',
-        'price',
-        'image',
-        'images',
-        'product_model_id',
-        'category_id',
+        "title",
+        "product_number",
+        "product_number_replacements",
+        "product_number_inner",
+        "product_model_id",
+        "description",
+        "description_full",
+        "price",
+        "category_id",
+        "product_recommend",
+        "images"
     ];
 
     protected $hidden = [

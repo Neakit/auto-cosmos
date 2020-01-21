@@ -6,7 +6,8 @@ export const privateHTTP = ({ url, method, data = {}, params = {} }) => {
     if(token !== null) {
          return axios({
             // baseURL: 'https://auto-cosmos.ru',
-            baseURL: 'http://127.0.0.1:8000',
+            // baseURL: 'http://127.0.0.1:8000',
+            baseURL: 'http://auto-cosmos.test',
             url,
             method,
             params,
@@ -16,7 +17,7 @@ export const privateHTTP = ({ url, method, data = {}, params = {} }) => {
             },
             data
         })
-    } 
+    }
 }
 
 export const publicHTTP = ({ url, method, data = {}, params = {} }) => {

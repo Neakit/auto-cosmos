@@ -30,19 +30,26 @@ class ProductController extends Controller
         return response()->json($results, 200);
     }
 
+    /**
+    * Создание продукта
+     */
     public function store(Request $request)
     {
         $product = Product::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'product_model_id' => $request->product_model_id,
-            'price' => $request->price,
+            "title" => $request->title,
+            "product_number" => $request->product_number,
+            "product_number_replacements" => $request->product_number_replacements,
+            "product_number_inner" => $request->product_number_inner,
+            "product_model_id" => $request->product_model_id,
+            "description" => $request->description,
+            "description_full" =>  $request->description_full,
+            "price" => $request->price,
+            "category_id" => $request->category_id,
+            "product_recommend" => $request->product_recommend,
             'images' => $request->images,
-            'category_id' => $request->category_id,
         ]);
 
-
-        $data = Product::where('id', $product->id)->with(['category', 'model', 'status'])->first();
+        $data = Product::where('id', $product->id)->with(['category', 'model'])->first();
 
         return response()->json([
             'status' => (bool) $product ? 1 : 0,
@@ -70,7 +77,7 @@ class ProductController extends Controller
             $status = Product::find($request->id);
             $status->update(['images' => $request->images]);
 
-            $data = Product::where('id', $request->id)->with(['category', 'model', 'status'])->first();
+            $data = Product::where('id', $request->id)->with(['category', 'model'])->first();
             return response()->json([
                 'data' => $data,
                 'status' => $status ? 1 : 0,

@@ -3,15 +3,18 @@ import router from '../router';
 
 const createEmptyProduct = () => {
     return {
-        id: '',
-        image: '',
-        images: [],
+        id: null,
         title: '',
-        category_id: '',
-        product_model_id: '',
-        status_id: '',
+        product_number: '',
+        product_number_replacements: '',
+        product_number_inner: '',
+        product_model_id: null,
         description: '',
-        price: ''
+        description_full: '',
+        price: null,
+        category_id: null,
+        product_recommend: false,
+        images: [],
     }
 };
 
@@ -37,6 +40,7 @@ const mutations = {
         state.product = createEmptyProduct();
     },
     setProductProp(state, { key, value }) {
+        console.log(value)
         state.product[key] = value;
     },
     deleteProduct(state, id) {
@@ -78,7 +82,7 @@ const getters = {
 };
 
 const actions = {
-    
+
     getProducts({ commit }, payload) {
         const params = payload && payload.params || {};
         publicHTTP({
@@ -93,6 +97,7 @@ const actions = {
     async createProduct({ commit }) {
         const product = state.product;
         product.images = JSON.stringify(product.images);
+
         privateHTTP({
             url: 'api/products',
             method: 'post',
@@ -103,9 +108,11 @@ const actions = {
             commit('modals/setToastMessage', 'Продукт успешно создан', { root: true });
             commit('modals/toggleModal', { name: 'toastModal', bool: true }, { root: true });
         }).catch(e => {
-            if(e.response.status === 401) {
-                router.push('/admin/login');
-            }
+            console.log(e);
+            debugger
+            // if(e.response.status === 401) {
+            //     router.push('/admin/login');
+            // }
         });
     },
     updateProduct({ commit }) {

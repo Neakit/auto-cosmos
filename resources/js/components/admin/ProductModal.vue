@@ -19,9 +19,9 @@
                         <div class="images-wrapper row align-items-center">
                             <div class="col"
                                 style="position: relative;  border: 1px solid #3490dc; text-align: center"
-                                v-for="(image, index) in product.images" 
+                                v-for="(image, index) in product.images"
                                 :key="index"
-                            >   
+                            >
                                 <i class="material-icons"
                                     style="position: absolute; right: 0; top: 5px; cursor: pointer"
                                     @click="removeImageWrap(image, index)"
@@ -29,9 +29,9 @@
                                     close
                                 </i>
                                 <img
-                                    :src="image" 
+                                    :src="image"
                                     class="product-image-block"
-                                    alt="part-image" 
+                                    alt="part-image"
                                 >
                             </div>
                             <div class="col" style="text-align: center">
@@ -42,24 +42,72 @@
                     </div>
                     <div class="col-12 p-1">
                         <div class="form-group row">
-                            <label class="col-2 col-form-label" for="exampleFormControlInput1">Наименование:</label>
+                            <label class="col-2 col-form-label" for="product-title">Наименование:</label>
                             <div class="col-sm-10">
-                                <input 
-                                    type="text" 
-                                    class="form-control" 
-                                    id="exampleFormControlInput1" 
-                                    :value="product.title || ''"
+                                <input
+                                    type="text"
+                                    required
+                                    class="form-control"
+                                    id="product-title"
+                                    :value="product.title"
                                     @change="setProductProp({ key: 'title', value: $event.target.value })"
                                 >
                             </div>
                         </div>
+                        <!-- Номер детали -->
                         <div class="form-group row">
-                            <label class="col-2 col-form-label" for="exampleFormControlSelect1">Модель:</label>
+                            <label class="col-2 col-form-label" for="product-number">Номер детали:</label>
                             <div class="col-sm-10">
-                                <select 
-                                    class="form-control" 
-                                    id="exampleFormControlSelect1" 
-                                    :value="product.product_model_id || ''"
+                                <input
+                                    type="text"
+                                    required
+                                    class="form-control"
+                                    id="product-number"
+                                    :value="product.product_number"
+                                    @change="setProductProp({ key: 'product_number', value: $event.target.value })"
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Номер замены детали -->
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label" for="product_number_replacements">Номер замены детали:</label>
+                            <div class="col-sm-10">
+                                <input
+                                    type="text"
+                                    required
+                                    class="form-control"
+                                    id="product_number_replacements"
+                                    :value="product.product_number_replacements"
+                                    @change="setProductProp({ key: 'product_number_replacements', value: $event.target.value })"
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Внутренний код товара -->
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label" for="product_number_inner">Внутренний код товара:</label>
+                            <div class="col-sm-10">
+                                <input
+                                    type="text"
+                                    required
+                                    class="form-control"
+                                    id="product_number_inner"
+                                    :value="product.product_number_inner"
+                                    @change="setProductProp({ key: 'product_number_inner', value: $event.target.value })"
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Модель (Марка) -->
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label" for="product_model_id">Модель:</label>
+                            <div class="col-sm-10">
+                                <select
+                                    required
+                                    class="form-control"
+                                    id="product_model_id"
+                                    :value="product.product_model_id"
                                     @change="setProductProp({ key: 'product_model_id', value: $event.target.value })"
                                 >
                                     <option disabled value="">Выберите модель</option>
@@ -67,12 +115,61 @@
                                 </select>
                             </div>
                         </div>
+
+
+
+                        <!-- Описание коротко -->
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label" for="description">Описание коротко:</label>
+                            <div class="col-sm-10">
+                                <textarea
+                                    required
+                                    class="form-control"
+                                    id="description"
+                                    rows="3"
+                                    :value="product.description"
+                                    @change="setProductProp({ key: 'description', value: $event.target.value })"
+                                ></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Описание подробно -->
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label" for="description_full">Описание подробно:</label>
+                            <div class="col-sm-10">
+                                <textarea
+                                    required
+                                    class="form-control"
+                                    id="description_full"
+                                    rows="3"
+                                    :value="product.description_full"
+                                    @change="setProductProp({ key: 'description_full', value: $event.target.value })"
+                                ></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Цена -->
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label" for="exampleFormControlInput1">Цена:</label>
+                            <div class="col-sm-10">
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="exampleFormControlInput1"
+                                    :value="product.price || ''"
+                                    @change="setProductProp({ key: 'price', value: $event.target.value })"
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Категория -->
                         <div class="form-group row">
                             <label class="col-2 col-form-label" for="exampleFormControlSelect1">Категория:</label>
                             <div class="col-sm-10">
-                                <select 
-                                    class="form-control" 
-                                    id="exampleFormControlSelect1" 
+                                <select
+                                    required
+                                    class="form-control"
+                                    id="exampleFormControlSelect1"
                                     :value="product.category_id || ''"
                                     @change="setProductProp({ key: 'category_id', value: $event.target.value })"
                                 >
@@ -81,51 +178,26 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label" for="exampleFormControlInput1">Цена:</label>
-                            <div class="col-sm-10">
-                                <input 
-                                    type="number" 
-                                    class="form-control" 
-                                    id="exampleFormControlInput1" 
-                                    :value="product.price || ''"
-                                    @change="setProductProp({ key: 'price', value: $event.target.value })"
-                                >
-                            </div>
+
+                        <!-- Рекомендация -->
+                        <div class="form-group form-check row">
+                            <input
+                                type="checkbox"
+                                class="form-check-input"
+                                id="product_recommend"
+                                @change="setProductProp({ key: 'product_recommend', value: $event.target.checked })"
+                            >
+                            <label class="form-check-label" for="product_recommend">Рекомендовать товар</label>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label" for="exampleFormControlSelect1">Статус:</label>
-                            <div class="col-sm-10">
-                                <select 
-                                    class="form-control" 
-                                    id="exampleFormControlSelect1" 
-                                    :value="product.status_id || ''"
-                                    @change="setProductProp({ key: 'status_id', value: $event.target.value })"
-                                >
-                                    <option disabled value="">Выберите статус</option>
-                                    <option v-for="(item, index) in statuses" :key="index" :value="item.id">{{ item.title }}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label" for="exampleFormControlTextarea1">Описание:</label>
-                            <div class="col-sm-10">
-                                <textarea 
-                                    class="form-control" 
-                                    id="exampleFormControlTextarea1" 
-                                    rows="3" 
-                                    :value="product.description"
-                                    @change="setProductProp({ key: 'description', value: $event.target.value })"
-                                ></textarea>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
+
                 <div class="modal-footer">
                     <slot name="footer">
-                        <button 
-                            type="button" 
-                            class="btn btn-primary" 
+                        <button
+                            type="button"
+                            class="btn btn-primary"
                             @click="saveChanges"
                         >{{ product.id ? 'Обновить' : 'Создать'}}</button>
                     </slot>
@@ -147,19 +219,18 @@ import { privateHTTPTest } from '../../services';
                 clientImages: []
             }
         },
-        
+
         computed: {
             ...mapGetters('model', ['models']),
             ...mapGetters('category', ['categories']),
-            ...mapGetters(['statuses']),
             ...mapGetters('product', ['product'])
         },
         methods: {
             ...mapMutations('modals', ['toggleModal']),
             ...mapMutations('product', [
-                'clearProduct', 
-                'setProductProp', 
-                'addImages', 
+                'clearProduct',
+                'setProductProp',
+                'addImages',
                 'removeImage'
             ]),
             ...mapActions('product', ['updateProduct', 'createProduct']),
@@ -192,7 +263,7 @@ import { privateHTTPTest } from '../../services';
                         }
                     }).then(res => {
                         this.removeImage(index);
-                    }) 
+                    })
                 }
             },
             selectImage() {
@@ -206,6 +277,7 @@ import { privateHTTPTest } from '../../services';
             attachFiles(event) {
                 this.attachments = event.target.files[0];
             },
+
             async saveChanges() {
                 if(this.product.id) {
                     await this.updateProduct();
@@ -213,6 +285,7 @@ import { privateHTTPTest } from '../../services';
                     await this.createProduct();
                 }
             },
+
             async uploadFile() {
                 if (this.attachment != null) {
                     const data = new FormData();
@@ -231,6 +304,10 @@ import { privateHTTPTest } from '../../services';
                     // this.$emit('close', this.product)
                 }
             },
+
+            /**
+             * Очистить объект продукта и закрыть модальное окно
+             * */
             closeModal() {
                 this.clearProduct();
                 this.toggleModal({

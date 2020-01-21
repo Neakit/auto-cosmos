@@ -3153,6 +3153,78 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3163,7 +3235,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       clientImages: []
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('model', ['models']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('category', ['categories']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(['statuses']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('product', ['product'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('model', ['models']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('category', ['categories']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('product', ['product'])),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('modals', ['toggleModal']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('product', ['clearProduct', 'setProductProp', 'addImages', 'removeImage']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('product', ['updateProduct', 'createProduct']), {
     removeImageWrap: function removeImageWrap(image, index) {
       var _this = this;
@@ -3271,6 +3343,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       }, null, this);
     },
+
+    /**
+     * Очистить объект продукта и закрыть модальное окно
+     * */
     closeModal: function closeModal() {
       this.clearProduct();
       this.toggleModal({
@@ -5298,7 +5374,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Modal: _components_admin_ProductModal__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('product', ['products']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('category', ['categories']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('model', ['models']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('product', ['products']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('modals', ['productModal'])),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('modals', ['toggleModal', 'setDestroyData']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('product', ['setProduct']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('product', ['getProducts']), {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('modals', ['toggleModal', 'setDestroyData']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('product', ['setProduct', 'clearProduct']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('product', ['getProducts']), {
     filterProducts: function filterProducts() {
       var params = {
         title: this.title,
@@ -5322,17 +5398,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       });
     },
+
+    /**
+     * Добавить новый продукт
+     * */
     addNewProduct: function addNewProduct() {
-      this.setProduct({
-        image: '',
-        images: [],
-        title: '',
-        category_id: '',
-        product_model_id: '',
-        status_id: '',
-        description: '',
-        price: ''
-      });
+      this.clearProduct();
       this.toggleModal({
         name: 'productModal',
         bool: true
@@ -12492,7 +12563,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.menu-item {\r\n  background-color: #cf6100;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-family: 'PT Sans', sans-serif;\r\n  font-size: 16px;\r\n  text-align: center;\r\n  padding: 16px;\r\n  cursor: pointer;\n}\n.menu-item__active {\r\n  background-color: #f17100;\n}\r\n", ""]);
+exports.push([module.i, "\n.menu-item {\n  background-color: #cf6100;\n  color: #fff;\n  text-transform: uppercase;\n  font-family: 'PT Sans', sans-serif;\n  font-size: 16px;\n  text-align: center;\n  padding: 16px;\n  cursor: pointer;\n}\n.menu-item__active {\n  background-color: #f17100;\n}\n", ""]);
 
 // exports
 
@@ -56368,7 +56439,7 @@ var render = function() {
                 "label",
                 {
                   staticClass: "col-2 col-form-label",
-                  attrs: { for: "exampleFormControlInput1" }
+                  attrs: { for: "product-title" }
                 },
                 [_vm._v("Наименование:")]
               ),
@@ -56376,8 +56447,8 @@ var render = function() {
               _c("div", { staticClass: "col-sm-10" }, [
                 _c("input", {
                   staticClass: "form-control",
-                  attrs: { type: "text", id: "exampleFormControlInput1" },
-                  domProps: { value: _vm.product.title || "" },
+                  attrs: { type: "text", required: "", id: "product-title" },
+                  domProps: { value: _vm.product.title },
                   on: {
                     change: function($event) {
                       return _vm.setProductProp({
@@ -56395,7 +56466,96 @@ var render = function() {
                 "label",
                 {
                   staticClass: "col-2 col-form-label",
-                  attrs: { for: "exampleFormControlSelect1" }
+                  attrs: { for: "product-number" }
+                },
+                [_vm._v("Номер детали:")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-10" }, [
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: { type: "text", required: "", id: "product-number" },
+                  domProps: { value: _vm.product.product_number },
+                  on: {
+                    change: function($event) {
+                      return _vm.setProductProp({
+                        key: "product_number",
+                        value: $event.target.value
+                      })
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-2 col-form-label",
+                  attrs: { for: "product_number_replacements" }
+                },
+                [_vm._v("Номер замены детали:")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-10" }, [
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    required: "",
+                    id: "product_number_replacements"
+                  },
+                  domProps: { value: _vm.product.product_number_replacements },
+                  on: {
+                    change: function($event) {
+                      return _vm.setProductProp({
+                        key: "product_number_replacements",
+                        value: $event.target.value
+                      })
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-2 col-form-label",
+                  attrs: { for: "product_number_inner" }
+                },
+                [_vm._v("Внутренний код товара:")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-10" }, [
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    required: "",
+                    id: "product_number_inner"
+                  },
+                  domProps: { value: _vm.product.product_number_inner },
+                  on: {
+                    change: function($event) {
+                      return _vm.setProductProp({
+                        key: "product_number_inner",
+                        value: $event.target.value
+                      })
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-2 col-form-label",
+                  attrs: { for: "product_model_id" }
                 },
                 [_vm._v("Модель:")]
               ),
@@ -56405,8 +56565,8 @@ var render = function() {
                   "select",
                   {
                     staticClass: "form-control",
-                    attrs: { id: "exampleFormControlSelect1" },
-                    domProps: { value: _vm.product.product_model_id || "" },
+                    attrs: { required: "", id: "product_model_id" },
+                    domProps: { value: _vm.product.product_model_id },
                     on: {
                       change: function($event) {
                         return _vm.setProductProp({
@@ -56439,42 +56599,52 @@ var render = function() {
                 "label",
                 {
                   staticClass: "col-2 col-form-label",
-                  attrs: { for: "exampleFormControlSelect1" }
+                  attrs: { for: "description" }
                 },
-                [_vm._v("Категория:")]
+                [_vm._v("Описание коротко:")]
               ),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-10" }, [
-                _c(
-                  "select",
-                  {
-                    staticClass: "form-control",
-                    attrs: { id: "exampleFormControlSelect1" },
-                    domProps: { value: _vm.product.category_id || "" },
-                    on: {
-                      change: function($event) {
-                        return _vm.setProductProp({
-                          key: "category_id",
-                          value: $event.target.value
-                        })
-                      }
+                _c("textarea", {
+                  staticClass: "form-control",
+                  attrs: { required: "", id: "description", rows: "3" },
+                  domProps: { value: _vm.product.description },
+                  on: {
+                    change: function($event) {
+                      return _vm.setProductProp({
+                        key: "description",
+                        value: $event.target.value
+                      })
                     }
-                  },
-                  [
-                    _c("option", { attrs: { disabled: "", value: "" } }, [
-                      _vm._v("Выберите категорию")
-                    ]),
-                    _vm._v(" "),
-                    _vm._l(_vm.categories, function(item, index) {
-                      return _c(
-                        "option",
-                        { key: index, domProps: { value: item.id } },
-                        [_vm._v(_vm._s(item.title))]
-                      )
-                    })
-                  ],
-                  2
-                )
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group row" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "col-2 col-form-label",
+                  attrs: { for: "description_full" }
+                },
+                [_vm._v("Описание подробно:")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-10" }, [
+                _c("textarea", {
+                  staticClass: "form-control",
+                  attrs: { required: "", id: "description_full", rows: "3" },
+                  domProps: { value: _vm.product.description_full },
+                  on: {
+                    change: function($event) {
+                      return _vm.setProductProp({
+                        key: "description_full",
+                        value: $event.target.value
+                      })
+                    }
+                  }
+                })
               ])
             ]),
             _vm._v(" "),
@@ -56512,7 +56682,7 @@ var render = function() {
                   staticClass: "col-2 col-form-label",
                   attrs: { for: "exampleFormControlSelect1" }
                 },
-                [_vm._v("Статус:")]
+                [_vm._v("Категория:")]
               ),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-10" }, [
@@ -56520,12 +56690,12 @@ var render = function() {
                   "select",
                   {
                     staticClass: "form-control",
-                    attrs: { id: "exampleFormControlSelect1" },
-                    domProps: { value: _vm.product.status_id || "" },
+                    attrs: { required: "", id: "exampleFormControlSelect1" },
+                    domProps: { value: _vm.product.category_id || "" },
                     on: {
                       change: function($event) {
                         return _vm.setProductProp({
-                          key: "status_id",
+                          key: "category_id",
                           value: $event.target.value
                         })
                       }
@@ -56533,10 +56703,10 @@ var render = function() {
                   },
                   [
                     _c("option", { attrs: { disabled: "", value: "" } }, [
-                      _vm._v("Выберите статус")
+                      _vm._v("Выберите категорию")
                     ]),
                     _vm._v(" "),
-                    _vm._l(_vm.statuses, function(item, index) {
+                    _vm._l(_vm.categories, function(item, index) {
                       return _c(
                         "option",
                         { key: index, domProps: { value: item.id } },
@@ -56549,31 +56719,28 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
+            _c("div", { staticClass: "form-group form-check row" }, [
+              _c("input", {
+                staticClass: "form-check-input",
+                attrs: { type: "checkbox", id: "product_recommend" },
+                on: {
+                  change: function($event) {
+                    return _vm.setProductProp({
+                      key: "product_recommend",
+                      value: $event.target.checked
+                    })
+                  }
+                }
+              }),
+              _vm._v(" "),
               _c(
                 "label",
                 {
-                  staticClass: "col-2 col-form-label",
-                  attrs: { for: "exampleFormControlTextarea1" }
+                  staticClass: "form-check-label",
+                  attrs: { for: "product_recommend" }
                 },
-                [_vm._v("Описание:")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-sm-10" }, [
-                _c("textarea", {
-                  staticClass: "form-control",
-                  attrs: { id: "exampleFormControlTextarea1", rows: "3" },
-                  domProps: { value: _vm.product.description },
-                  on: {
-                    change: function($event) {
-                      return _vm.setProductProp({
-                        key: "description",
-                        value: $event.target.value
-                      })
-                    }
-                  }
-                })
-              ])
+                [_vm._v("Рекомендовать товар")]
+              )
             ])
           ])
         ]),
@@ -91409,7 +91576,8 @@ var privateHTTP = function privateHTTP(_ref) {
   if (token !== null) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default()({
       // baseURL: 'https://auto-cosmos.ru',
-      baseURL: 'http://127.0.0.1:8000',
+      // baseURL: 'http://127.0.0.1:8000',
+      baseURL: 'http://auto-cosmos.test',
       url: url,
       method: method,
       params: params,
@@ -91944,7 +92112,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     auth: false,
     user: [],
     models: [],
-    statuses: [],
+    // statuses: [],
     productModal: false,
     image: ''
   },
@@ -91972,9 +92140,9 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     setModels: function setModels(state, payload) {
       state.models = payload;
     },
-    setStatuses: function setStatuses(state, payload) {
-      state.statuses = payload;
-    },
+    // setStatuses(state, payload) {
+    //     state.statuses = payload;
+    // },
     setUser: function setUser(state, payload) {
       state.user = payload;
     },
@@ -91994,44 +92162,25 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     //     });
     //     commit('setModels', data);
     // },
-    getStatuses: function getStatuses(_ref) {
-      var commit, _ref2, data;
+    // async getStatuses({ commit }) {
+    //     const { data } = await axios({
+    //         baseURL: 'https://auto-cosmos.ru',
+    //         // baseURL: 'http://auto-mustang.ru',
+    //         // baseURL: 'http://127.0.0.1:8000',
+    //         method: 'get',
+    //         url: '/api/statuses'
+    //     });
+    //     commit('setStatuses', data);
+    // },
+    addNewOrder: function addNewOrder(_ref, _ref2) {
+      var commit, desc, name, url, qs, _ref3, status;
 
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getStatuses$(_context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function addNewOrder$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               commit = _ref.commit;
-              _context.next = 3;
-              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios__WEBPACK_IMPORTED_MODULE_3___default()({
-                baseURL: 'https://auto-cosmos.ru',
-                // baseURL: 'http://auto-mustang.ru',
-                // baseURL: 'http://127.0.0.1:8000',
-                method: 'get',
-                url: '/api/statuses'
-              }));
-
-            case 3:
-              _ref2 = _context.sent;
-              data = _ref2.data;
-              commit('setStatuses', data);
-
-            case 6:
-            case "end":
-              return _context.stop();
-          }
-        }
-      });
-    },
-    addNewOrder: function addNewOrder(_ref3, _ref4) {
-      var commit, desc, name, url, qs, _ref5, status;
-
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function addNewOrder$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              commit = _ref3.commit;
-              desc = _ref4.desc, name = _ref4.name;
+              desc = _ref2.desc, name = _ref2.name;
               url = 'https://api.trello.com/1/cards';
               qs = {
                 name: name,
@@ -92044,31 +92193,31 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
                 token: 'a59594d1e3fb7432f4d94d8bd1870535770fdd07c3490826b0359cbe09e4ac70'
               }; // commit("setLoading", true);
 
-              _context2.prev = 4;
-              _context2.next = 7;
+              _context.prev = 4;
+              _context.next = 7;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(axios__WEBPACK_IMPORTED_MODULE_3___default.a.post(url, qs));
 
             case 7:
-              _ref5 = _context2.sent;
-              status = _ref5.status;
+              _ref3 = _context.sent;
+              status = _ref3.status;
 
               if (status === 200) {// console.log(data);
                 // commit("setLoading", false);
                 // commit("toggleOrderDialog", false);
               }
 
-              _context2.next = 15;
+              _context.next = 15;
               break;
 
             case 12:
-              _context2.prev = 12;
-              _context2.t0 = _context2["catch"](4);
-              // TODO: вывести сообщение об ошибке 
-              console.log(_context2.t0);
+              _context.prev = 12;
+              _context.t0 = _context["catch"](4);
+              // TODO: вывести сообщение об ошибке
+              console.log(_context.t0);
 
             case 15:
             case "end":
-              return _context2.stop();
+              return _context.stop();
           }
         }
       }, null, null, [[4, 12]]);
@@ -92525,15 +92674,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var createEmptyProduct = function createEmptyProduct() {
   return {
-    id: '',
-    image: '',
-    images: [],
+    id: null,
     title: '',
-    category_id: '',
-    product_model_id: '',
-    status_id: '',
+    product_number: '',
+    product_number_replacements: '',
+    product_number_inner: '',
+    product_model_id: null,
     description: '',
-    price: ''
+    description_full: '',
+    price: null,
+    category_id: null,
+    product_recommend: false,
+    images: []
   };
 };
 
@@ -92561,6 +92713,7 @@ var mutations = {
   setProductProp: function setProductProp(state, _ref) {
     var key = _ref.key,
         value = _ref.value;
+    console.log(value);
     state.product[key] = value;
   },
   deleteProduct: function deleteProduct(state, id) {
@@ -92648,9 +92801,10 @@ var actions = {
                 root: true
               });
             })["catch"](function (e) {
-              if (e.response.status === 401) {
-                _router__WEBPACK_IMPORTED_MODULE_2__["default"].push('/admin/login');
-              }
+              console.log(e);
+              debugger; // if(e.response.status === 401) {
+              //     router.push('/admin/login');
+              // }
             });
 
           case 4:
@@ -92739,8 +92893,8 @@ var actions = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Neakit\Desktop\auto-cosmos\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Neakit\Desktop\auto-cosmos\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /mnt/c/Users/Neakit/code/auto-cosmos/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /mnt/c/Users/Neakit/code/auto-cosmos/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

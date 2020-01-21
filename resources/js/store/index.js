@@ -16,7 +16,7 @@ export default new Vuex.Store({
             auth: false,
             user: [],
             models: [],
-            statuses: [],
+            // statuses: [],
             productModal: false,
             image: ''
         },
@@ -44,9 +44,9 @@ export default new Vuex.Store({
             setModels(state, payload) {
                 state.models = payload;
             },
-            setStatuses(state, payload) {
-                state.statuses = payload;
-            },
+            // setStatuses(state, payload) {
+            //     state.statuses = payload;
+            // },
             setUser(state, payload) {
                 state.user = payload;
             },
@@ -66,16 +66,16 @@ export default new Vuex.Store({
             //     });
             //     commit('setModels', data);
             // },
-            async getStatuses({ commit }) {
-                const { data } = await axios({
-                    baseURL: 'https://auto-cosmos.ru',
-                    // baseURL: 'http://auto-mustang.ru',
-                    // baseURL: 'http://127.0.0.1:8000',
-                    method: 'get',
-                    url: '/api/statuses'
-                });
-                commit('setStatuses', data);
-            },
+            // async getStatuses({ commit }) {
+            //     const { data } = await axios({
+            //         baseURL: 'https://auto-cosmos.ru',
+            //         // baseURL: 'http://auto-mustang.ru',
+            //         // baseURL: 'http://127.0.0.1:8000',
+            //         method: 'get',
+            //         url: '/api/statuses'
+            //     });
+            //     commit('setStatuses', data);
+            // },
             async addNewOrder({ commit }, { desc, name }) {
                 const url = 'https://api.trello.com/1/cards';
                 const qs = {
@@ -97,7 +97,7 @@ export default new Vuex.Store({
                         // commit("toggleOrderDialog", false);
                     }
                 } catch (e) {
-                    // TODO: вывести сообщение об ошибке 
+                    // TODO: вывести сообщение об ошибке
                     console.log(e);
                 }
             }

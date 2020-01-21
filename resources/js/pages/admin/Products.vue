@@ -124,7 +124,7 @@
         },
         methods: {
             ...mapMutations('modals', ['toggleModal', 'setDestroyData']),
-            ...mapMutations('product', ['setProduct']),
+            ...mapMutations('product', ['setProduct', 'clearProduct']),
 
             ...mapActions('product', ['getProducts']),
             filterProducts() {
@@ -144,22 +144,18 @@
             getProductsPage(page) {
                 this.getProducts({ params: { page } });
             },
+
+            /**
+             * Добавить новый продукт
+             * */
             addNewProduct() {
-                this.setProduct({
-                    image: '',
-                    images: [],
-                    title: '',
-                    category_id: '',
-                    product_model_id: '',
-                    status_id: '',
-                    description: '',
-                    price: ''
-                });
+                this.clearProduct();
                 this.toggleModal({
                     name: 'productModal',
                     bool: true
                 });
             },
+
             editProduct(product) {
                 this.setProduct({
                     id: product.id,
