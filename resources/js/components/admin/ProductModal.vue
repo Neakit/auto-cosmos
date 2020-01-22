@@ -14,6 +14,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
                 <div class="row no-gutters p-2">
                     <div class="col-12 p-1">
                         <div class="images-wrapper row align-items-center">
@@ -41,154 +42,193 @@
                         </div>
                     </div>
                     <div class="col-12 p-1">
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label" for="product-title">Наименование:</label>
-                            <div class="col-sm-10">
-                                <input
-                                    type="text"
-                                    required
-                                    class="form-control"
-                                    id="product-title"
-                                    :value="product.title"
-                                    @change="setProductProp({ key: 'title', value: $event.target.value })"
-                                >
-                            </div>
-                        </div>
-                        <!-- Номер детали -->
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label" for="product-number">Номер детали:</label>
-                            <div class="col-sm-10">
-                                <input
-                                    type="text"
-                                    required
-                                    class="form-control"
-                                    id="product-number"
-                                    :value="product.product_number"
-                                    @change="setProductProp({ key: 'product_number', value: $event.target.value })"
-                                >
-                            </div>
-                        </div>
+                        <!-- Наименование -->
+                        <b-form-group
+                            label="Наименование:"
+                            label-for="product-title"
+                            :state="!$v.product.title.$error"
+                        >
+                            <b-input
+                                type="text"
+                                :value="product.title"
+                                @change="setProductProp({ key: 'title', value: $event })"
+                                placeholder="Введите наименование детали"
+                                name="product-title"
+                                :state="!$v.product.title.$error"
+                            />
+                            <template v-slot:invalid-feedback>
+                                <span>Поле обязательно к заполнению</span>
+                            </template>
+                        </b-form-group>
 
-                        <!-- Номер замены детали -->
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label" for="product_number_replacements">Номер замены детали:</label>
-                            <div class="col-sm-10">
-                                <input
-                                    type="text"
-                                    required
-                                    class="form-control"
-                                    id="product_number_replacements"
-                                    :value="product.product_number_replacements"
-                                    @change="setProductProp({ key: 'product_number_replacements', value: $event.target.value })"
-                                >
-                            </div>
-                        </div>
+                        <!-- Номер детали -->
+                        <b-form-group
+                            label="Номер детали:"
+                            label-for="product-number"
+                            :state="!$v.product.product_number.$error"
+                        >
+                            <b-input
+                                type="text"
+                                :value="product.product_number"
+                                @change="setProductProp({ key: 'product_number', value: $event })"
+                                placeholder="Введите Номер детали"
+                                name="product-number"
+                                :state="!$v.product.product_number.$error"
+                            />
+                            <template v-slot:invalid-feedback>
+                                <span>Поле обязательно к заполнению</span>
+                            </template>
+                        </b-form-group>
+
+                        <!-- Номера замены детали -->
+                        <b-form-group
+                            label="Номера замены детали:"
+                            label-for="product_number_replacements"
+                            :state="!$v.product.product_number_replacements.$error"
+                        >
+                            <b-input
+                                type="text"
+                                :value="product.product_number_replacements"
+                                @change="setProductProp({ key: 'product_number_replacements', value: $event })"
+                                placeholder="Введите Номера замены детали"
+                                name="product_number_replacements"
+                                :state="!$v.product.product_number_replacements.$error"
+                            />
+                            <template v-slot:invalid-feedback>
+                                <span>Поле обязательно к заполнению</span>
+                            </template>
+                        </b-form-group>
 
                         <!-- Внутренний код товара -->
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label" for="product_number_inner">Внутренний код товара:</label>
-                            <div class="col-sm-10">
-                                <input
-                                    type="text"
-                                    required
-                                    class="form-control"
-                                    id="product_number_inner"
-                                    :value="product.product_number_inner"
-                                    @change="setProductProp({ key: 'product_number_inner', value: $event.target.value })"
-                                >
-                            </div>
-                        </div>
+                        <b-form-group
+                            label="Внутренний код детали:"
+                            label-for="product_number_inner"
+                            :state="!$v.product.product_number_inner.$error"
+                        >
+                            <b-input
+                                type="text"
+                                :value="product.product_number_inner"
+                                @change="setProductProp({ key: 'product_number_inner', value: $event })"
+                                placeholder="Введите внутренний код детали"
+                                name="product_number_inner"
+                                :state="!$v.product.product_number_inner.$error"
+                            />
+                            <template v-slot:invalid-feedback>
+                                <span>Поле обязательно к заполнению</span>
+                            </template>
+                        </b-form-group>
 
                         <!-- Модель (Марка) -->
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label" for="product_model_id">Модель:</label>
-                            <div class="col-sm-10">
-                                <select
-                                    required
-                                    class="form-control"
-                                    id="product_model_id"
+                        <b-form-group
+                            label="Модель (Марка) детали:"
+                            label-for="product_model_id"
+                            :state="!$v.product.product_model_id.$error"
+                        >
+                            <div>
+                                <b-select
+                                    placeholder="День"
+                                    :state="!$v.product.product_model_id.$error"
+                                    name="product_model_id"
                                     :value="product.product_model_id"
-                                    @change="setProductProp({ key: 'product_model_id', value: $event.target.value })"
+                                    @change="setProductProp({ key: 'product_model_id', value: $event })"
                                 >
                                     <option disabled value="">Выберите модель</option>
                                     <option v-for="(item, index) in models" :key="index" :value="item.id">{{ item.title }}</option>
-                                </select>
+                                </b-select>
                             </div>
-                        </div>
 
-
+                            <template v-slot:invalid-feedback>
+                                <span>Поле обязательно к заполнению</span>
+                            </template>
+                        </b-form-group>
 
                         <!-- Описание коротко -->
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label" for="description">Описание коротко:</label>
-                            <div class="col-sm-10">
-                                <textarea
-                                    required
-                                    class="form-control"
-                                    id="description"
-                                    rows="3"
-                                    :value="product.description"
-                                    @change="setProductProp({ key: 'description', value: $event.target.value })"
-                                ></textarea>
-                            </div>
-                        </div>
+                        <b-form-group
+                            label="Описание детали крaтко:"
+                            label-for="description"
+                            :state="!$v.product.description.$error"
+                        >
+                            <b-textarea
+                                type="text"
+                                :value="product.description"
+                                @change="setProductProp({ key: 'description', value: $event })"
+                                placeholder="Введите краткое описание детали"
+                                name="description"
+                                :state="!$v.product.description.$error"
+                            />
+                            <template v-slot:invalid-feedback>
+                                <span>Поле обязательно к заполнению</span>
+                            </template>
+                        </b-form-group>
 
                         <!-- Описание подробно -->
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label" for="description_full">Описание подробно:</label>
-                            <div class="col-sm-10">
-                                <textarea
-                                    required
-                                    class="form-control"
-                                    id="description_full"
-                                    rows="3"
-                                    :value="product.description_full"
-                                    @change="setProductProp({ key: 'description_full', value: $event.target.value })"
-                                ></textarea>
-                            </div>
-                        </div>
+                        <b-form-group
+                            label="Описание детали подробно:"
+                            label-for="description_full"
+                            :state="!$v.product.description_full.$error"
+                        >
+                            <b-textarea
+                                type="text"
+                                :value="product.description_full"
+                                @change="setProductProp({ key: 'description_full', value: $event })"
+                                placeholder="Введите краткое описание детали"
+                                name="description_full"
+                                :state="!$v.product.description_full.$error"
+                            />
+                            <template v-slot:invalid-feedback>
+                                <span>Поле обязательно к заполнению</span>
+                            </template>
+                        </b-form-group>
 
                         <!-- Цена -->
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label" for="exampleFormControlInput1">Цена:</label>
-                            <div class="col-sm-10">
-                                <input
-                                    type="number"
-                                    class="form-control"
-                                    id="exampleFormControlInput1"
-                                    :value="product.price || ''"
-                                    @change="setProductProp({ key: 'price', value: $event.target.value })"
-                                >
-                            </div>
-                        </div>
+                        <b-form-group
+                            label="Цена:"
+                            label-for="price"
+                            :state="!$v.product.price.$error"
+                        >
+                            <b-input
+                                type="number"
+                                :value="product.price"
+                                @change="setProductProp({ key: 'price', value: $event })"
+                                placeholder="Введите цену"
+                                name="price"
+                                :state="!$v.product.price.$error"
+                            />
+                            <template v-slot:invalid-feedback>
+                                <span>Поле обязательно к заполнению</span>
+                            </template>
+                        </b-form-group>
 
                         <!-- Категория -->
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label" for="exampleFormControlSelect1">Категория:</label>
-                            <div class="col-sm-10">
-                                <select
-                                    required
-                                    class="form-control"
-                                    id="exampleFormControlSelect1"
-                                    :value="product.category_id || ''"
-                                    @change="setProductProp({ key: 'category_id', value: $event.target.value })"
+                        <b-form-group
+                            label="Категория детали:"
+                            label-for="category_id"
+                            :state="!$v.product.category_id.$error"
+                        >
+                            <div>
+                                <b-select
+                                    placeholder="День"
+                                    :state="!$v.product.category_id.$error"
+                                    name="category_id"
+                                    :value="product.category_id"
+                                    @change="setProductProp({ key: 'category_id', value: $event })"
                                 >
                                     <option disabled value="">Выберите категорию</option>
                                     <option v-for="(item, index) in categories" :key="index" :value="item.id">{{ item.title }}</option>
-                                </select>
+                                </b-select>
                             </div>
-                        </div>
+
+                            <template v-slot:invalid-feedback>
+                                <span>Поле обязательно к заполнению</span>
+                            </template>
+                        </b-form-group>
 
                         <!-- Рекомендация -->
-                        <div class="form-group form-check row">
-                            <input
-                                type="checkbox"
-                                class="form-check-input"
-                                id="product_recommend"
-                                @change="setProductProp({ key: 'product_recommend', value: $event.target.checked })"
-                            >
-                            <label class="form-check-label" for="product_recommend">Рекомендовать товар</label>
-                        </div>
+                        <b-form-checkbox
+                            @change="setProductProp({ key: 'product_recommend', value: $event })"
+                        >
+                            Рекомендовать товар
+                        </b-form-checkbox>
 
                     </div>
                 </div>
@@ -198,7 +238,7 @@
                         <button
                             type="button"
                             class="btn btn-primary"
-                            @click="saveChanges"
+                            @click="validate"
                         >{{ product.id ? 'Обновить' : 'Создать'}}</button>
                     </slot>
                 </div>
@@ -209,7 +249,7 @@
 
 <script>
 import { mapMutations, mapActions, mapGetters, mapState } from 'vuex';
-import { privateHTTPTest } from '../../services';
+import { required } from 'vuelidate/lib/validators'
 
     export default {
         data() {
@@ -217,6 +257,20 @@ import { privateHTTPTest } from '../../services';
                 attachment: null,
                 attachments: null,
                 clientImages: []
+            }
+        },
+
+        validations: {
+            product: {
+                title: { required },
+                product_number: { required },
+                product_number_replacements: { required },
+                product_number_inner: { required },
+                product_model_id: { required },
+                description: { required },
+                description_full: { required },
+                price: { required },
+                category_id: { required }
             }
         },
 
@@ -234,6 +288,13 @@ import { privateHTTPTest } from '../../services';
                 'removeImage'
             ]),
             ...mapActions('product', ['updateProduct', 'createProduct']),
+
+            validate() {
+                this.$v.$touch();
+                if(!this.$v.$anyError) {
+                    this.saveChanges();
+                } else return
+            },
 
             removeImageWrap(image, index) {
                 const nameIndex = image.lastIndexOf('/');
@@ -310,6 +371,7 @@ import { privateHTTPTest } from '../../services';
              * */
             closeModal() {
                 this.clearProduct();
+                this.$v.$reset();
                 this.toggleModal({
                     name: 'productModal',
                     bool: false

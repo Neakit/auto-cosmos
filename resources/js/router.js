@@ -31,9 +31,6 @@ import Dashboard from './pages/admin/Dashboard';
 import Products from './pages/admin/Products';
 import Categories from './pages/admin/Categories';
 import Posts from './pages/admin/Posts';
-import GuaranteeAdmin from './pages/admin/Guarantee';
-import DeliveryAdmin from './pages/admin/Delivery';
-import BuyingAdmin from './pages/admin/Buying';
 import ProductModels from "./pages/admin/ProductModels";
 
 const router = new VueRouter({
@@ -52,21 +49,6 @@ const router = new VueRouter({
                     path: '/shop',
                     name: 'shop',
                     component: Shop
-                },
-                {
-                    path: '/buying',
-                    name: 'buying',
-                    component: Buying
-                },
-                {
-                    path: '/delivery',
-                    name: 'delivery',
-                    component: Delivery
-                },
-                {
-                    path: '/guarantee',
-                    name: 'guarantee',
-                    component: Guarantee
                 },
                 // {
                 //     path: '/blog',
@@ -128,7 +110,7 @@ const router = new VueRouter({
                     name: 'Kamaz',
                     component: Kamaz
                 },
-                
+
                 // {
                 //     path: '/model/:model',
                 //     name: 'modelPage',
@@ -195,30 +177,6 @@ const router = new VueRouter({
                         requiresAuth: true
                     }
                 },
-                {
-                    path: 'guarantee',
-                    name: 'guarantee',
-                    component: GuaranteeAdmin,
-                    meta: {
-                        requiresAuth: true
-                    }
-                },
-                {
-                    path: 'delivery',
-                    name: 'delivery',
-                    component: DeliveryAdmin,
-                    meta: {
-                        requiresAuth: true
-                    }
-                },
-                {
-                    path: 'buying',
-                    name: 'buying',
-                    component: BuyingAdmin,
-                    meta: {
-                        requiresAuth: true
-                    }
-                }
             ]
         }
     ]

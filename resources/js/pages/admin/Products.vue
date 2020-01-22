@@ -73,11 +73,11 @@
              </div>
              <div class="row justify-content-center col-12">
                  <nav aria-label="Page navigation example">
-                     <ul class="pagination">
+                     <ul class="pagination" style="z-index: -10">
                          <li class="page-item"
                              :class="{ disabled: 1 === products.current_page }"
                          >
-                             <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Назад</a>
+                             <a  href="#" tabindex="-1" aria-disabled="true">Назад</a>
                          </li>
                          <li
                              v-for="(page, index) in products.last_page"
@@ -85,12 +85,12 @@
                              class="page-item"
                              :class="{ active: page === products.current_page }"
                          >
-                             <a @click="getProductsPage(page)" class="page-link" href="#">{{ page }}</a>
+                             <a @click="getProductsPage(page)"  href="#">{{ page }}</a>
                          </li>
                          <li class="page-item"
                              :class="{ disabled:  products.current_page === products.last_page }"
                          >
-                             <a class="page-link" href="#">Далее</a>
+                             <a  href="#">Далее</a>
                          </li>
                      </ul>
                  </nav>

@@ -40,7 +40,6 @@ const mutations = {
         state.product = createEmptyProduct();
     },
     setProductProp(state, { key, value }) {
-        console.log(value)
         state.product[key] = value;
     },
     deleteProduct(state, id) {

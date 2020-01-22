@@ -7,6 +7,16 @@ import Admin from './layouts/Admin'
 import router from './router';
 import store from './store';
 
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+
+// Install BootstrapVue
+Vue.use(BootstrapVue);
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin);
+
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
+
 import { LMap, LTileLayer, LMarker, LPopup } from 'vue2-leaflet';
 import { Icon } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -25,7 +35,7 @@ Icon.Default.mergeOptions({
 });
 
 import VModal from 'vue-js-modal'
- 
+
 Vue.use(VModal)
 
 import axios from 'axios';

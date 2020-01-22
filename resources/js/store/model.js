@@ -49,13 +49,12 @@ const getters = {
 
 const actions = {
     async createModel({ commit }) {
-        const { title, description } = state.model;
+        const { title } = state.model;
         privateHTTP({
             url: `/api/models`,
             method: 'post',
             data: {
-                title,
-                description
+                title
             }
         }).then(res => {
             commit('modals/toggleModal', { name: 'productModelModal', bool: false }, { root: true });
@@ -69,15 +68,14 @@ const actions = {
         });
     },
     updateModel({ commit, state }) {
-        const { id, title, description } = state.model;
+        const { id, title } = state.model;
 
         privateHTTP({
             url: `/api/models/${id}`,
             method: 'put',
             data: {
                 id,
-                title,
-                description
+                title
             }
         }).then(res => {
             commit('updateModel', res.data.data);

@@ -14,25 +14,28 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="row no-gutters p-2">
-                    <div class="col-12 p-1">
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label" for="category-title-form">Наименование:</label>
-                            <div class="col-sm-10">
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="category-title-form"
-                                    :value="model.title"
-                                    @change="setModelProp({ key: 'title', value: $event.target.value })"
-                                >
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                <b-form-group
+                    label="Наименование модели (марки) детали:"
+                    label-for="title"
+                    :state="!$v.model.title.$error"
+                >
+                    <b-input
+                        type="text"
+                        :value="model.title"
+                        @change="setModelProp({ key: 'title', value: $event })"
+                        placeholder="Наименование модели (марки) детали"
+                        name="title"
+                        :state="!$v.model.title.$error"
+                    />
+                    <template v-slot:invalid-feedback>
+                        <span>Поле обязательно к заполнению</span>
+                    </template>
+                </b-form-group>
+
                 <div class="modal-footer">
                     <slot name="footer">
-                        <button type="button" class="btn btn-primary" @click="saveChanges">{{ model.id ? 'Обновить' : 'Создать'}}</button>
+                        <button type="button" class="btn btn-primary" @click="validate">{{ model.id ? 'Обновить' : 'Создать'}}</button>
                     </slot>
                 </div>
             </div>
@@ -42,17 +45,29 @@
 
 <script>
     import { mapMutations, mapActions, mapGetters } from 'vuex';
+    import {required} from "vuelidate/lib/validators";
     export default {
         computed: {
             ...mapGetters('model', ['model']),
+        },
+        validations: {
+            model: {
+                title: { required }
+            }
         },
         methods: {
             ...mapActions('model', ['updateModel', 'createModel']),
             ...mapMutations('model', ['clearModel', 'setModelProp']),
             ...mapMutations('modals', ['toggleModal']),
+            validate() {
+                this.$v.$touch();
+                if(!this.$v.$anyError) {
+                    this.saveChanges();
+                } else return
+            },
             saveChanges() {
                 if(this.model.id) {
-                    // update model
+                    // update
                     this.updateModel();
                 } else {
                     // create
@@ -61,6 +76,7 @@
             },
             closeModal() {
                 this.clearModel();
+                this.$v.$reset();
                 this.toggleModal({ name: 'productModelModal', bool: false });
             }
         }
