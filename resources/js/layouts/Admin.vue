@@ -38,8 +38,8 @@
         },
         mounted() {
             this.getProducts();
-            // this.getModels();
-            // this.getCategories();
+            this.getModels();
+             this.getCategories();
         },
         computed: {
             ...mapGetters('product', ['products']),

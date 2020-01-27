@@ -16,35 +16,48 @@
                 </div>
                 <div class="row no-gutters p-2">
                     <div class="col-12 p-1">
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label" for="category-title-form">Наименование:</label>
-                            <div class="col-sm-10">
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="category-title-form"
-                                    :value="category.title"
-                                    @change="setCategoryProp({ key: 'title', value: $event.target.value })"
-                                >
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-2 col-form-label" for="category-description-form">Описание:</label>
-                            <div class="col-sm-10">
-                                <textarea
-                                    class="form-control"
-                                    id="category-description-form"
-                                    rows="3"
-                                    :value="category.description"
-                                    @change="setCategoryProp({ key: 'description', value: $event.target.value })"
-                                ></textarea>
-                            </div>
-                        </div>
+                        <!-- Внутренний код товара -->
+                        <b-form-group
+                            label="Наименование категории:"
+                            label-for="title"
+                            :state="!$v.category.title.$error"
+                        >
+                            <b-input
+                                type="text"
+                                :value="category.title"
+                                @change="setCategoryProp({ key: 'title', value: $event })"
+                                placeholder="Введите наименование категории"
+                                name="title"
+                                :state="!$v.category.title.$error"
+                            />
+                            <template v-slot:invalid-feedback>
+                                <span>Поле обязательно к заполнению</span>
+                            </template>
+                        </b-form-group>
+
+                        <!-- Описание категории -->
+                        <b-form-group
+                            label="Описание категории:"
+                            label-for="description"
+                            :state="!$v.category.description.$error"
+                        >
+                            <b-textarea
+                                type="text"
+                                :value="category.description"
+                                @change="setCategoryProp({ key: 'description', value: $event })"
+                                placeholder="Введите описание категории"
+                                name="description"
+                                :state="!$v.category.description.$error"
+                            />
+                            <template v-slot:invalid-feedback>
+                                <span>Поле обязательно к заполнению</span>
+                            </template>
+                        </b-form-group>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <slot name="footer">
-                        <button type="button" class="btn btn-primary" @click="saveChanges">{{ category.id ? 'Обновить' : 'Создать'}}</button>
+                        <button type="button" class="btn btn-primary" @click="validate">{{ category.id ? 'Обновить' : 'Создать'}}</button>
                     </slot>
                 </div>
             </div>
@@ -54,15 +67,31 @@
 
 <script>
     import { mapMutations, mapActions, mapGetters } from 'vuex';
+    import {required} from "vuelidate/lib/validators";
     export default {
         computed: {
             ...mapGetters('category', ['category']),
             ...mapGetters('modals', ['categoryModal']),
         },
+
+        validations: {
+            category: {
+                title: { required },
+                description: { required },
+            }
+        },
+
         methods: {
             ...mapActions('category', ['createCategory', 'updateCategory']),
             ...mapMutations('category', ['setCategoryProp', 'clearCategory', '']),
             ...mapMutations('modals', ['toggleModal']),
+            validate() {
+                this.$v.$touch();
+                if(!this.$v.$anyError) {
+                    this.saveChanges();
+                } else return
+            },
+
             saveChanges() {
                 if(this.category.id) {
                     // update product
