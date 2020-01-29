@@ -3,27 +3,27 @@
         <div class="col-12 col-md-8">
             <div class="card-product-content">
                 <div>
-                    <h5 class="card-product-title">{{ card.title }}</h5>
-                    <p class="card-model">{{ card.model.title }}</p>
+                    <h5 class="card-product-title">{{ card.title || '' }}</h5>
+                    <p class="card-model">{{ card.model.title || '' }}</p>
                 </div>
 
                 <div class="justify-content-between no-gutters row">
                     <p class="card-description">{{ card.description }}</p>
                 </div>
-                
+
                 <div class="row no-gutters justify-content-between align-items-center" >
                     <router-link :to="`/product/${card.id}`" class="btn">Подробнее</router-link>
                     <div>
-                        <p class="card-status">{{ card.status.title }}</p>
+<!--                        <p class="card-status">{{ card.status.title }}</p>-->
                         <p class="card-price">{{ card.price }} ₽</p>
                     </div>
                 </div>
-            
+
             </div>
         </div>
-        <div class="card-image-wrap col-12 col-md-4">
-            <img :src="card.images[0]" class="card-image" alt="product-card" />
-        </div>
+<!--        <div class="card-image-wrap col-12 col-md-4">-->
+<!--            <img :src="card.images[0]" class="card-image" alt="product-card" />-->
+<!--        </div>-->
     </div>
 </template>
 
@@ -32,8 +32,24 @@ export default {
     props: {
         card: {
             type: Object,
-            required: true
+            required: false,
+            default: () => {
+                return {
+                    title: '',
+                    model: {
+                        title: ''
+                    },
+                    description: '',
+                    status: {
+                        title: ''
+                    },
+                    price: ''
+                }
+            }
         }
+    },
+    created() {
+        console.log('this. prod', this.card)
     }
 }
 </script>
@@ -54,7 +70,7 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 100%; 
+        height: 100%;
     }
     .card-model {
         font-family: 'PT Sans', sans-serif;

@@ -12,6 +12,13 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
+        if($request->has('all')) {
+            $results = Product::with(['category', 'model'])
+                ->where('product_model_id', $request->product_model_id)
+                ->get();
+            return response()->json($results, 200);
+        }
+
         $results = Product::with(['category', 'model'])
             ->where(function($q) use ($request){
                 if(isset($request->title)){
