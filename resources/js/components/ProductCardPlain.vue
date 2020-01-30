@@ -1,29 +1,50 @@
 <template>
     <div class="card-plain row py-2">
-        <div class="col-12 col-md-8">
+        <div class="card-image-wrap col-12 col-md-4">
+            <img v-if="card.images.length > 0" :src="card.images[0]" alt="">
+            <img v-else src="/images/cardan.jpg" class="card-image" alt="product-card" />
+        </div>
+        <div class="col-12 col-md-6" >
             <div class="card-product-content">
                 <div>
-                    <h5 class="card-product-title">{{ card.title || '' }}</h5>
-                    <p class="card-model">{{ card.model.title || '' }}</p>
+                    <span>Название модели:</span>
+                    <span class="">{{ card.title || '' }}</span>
+                </div>
+
+                <div>
+                    <span>Номер замены:</span>
+                    <span class="card-model">{{ card.product_number_replacements || '' }}</span>
+                </div>
+
+                <div>
+                    <span>Номер детали:</span>
+                    <span>{{ card.product_number || '' }}</span>
+                </div>
+
+                <div>
+                    <span>Внутренний код детали:</span>
+                    <span>{{ card.product_number_inner || '' }}</span>
+                </div>
+                <div>
+                    <span>Марка (модель) детали:</span>
+                    <span>{{ card.model.title || '' }}</span>
                 </div>
 
                 <div class="justify-content-between no-gutters row">
-                    <p class="card-description">{{ card.description }}</p>
-                </div>
-
-                <div class="row no-gutters justify-content-between align-items-center" >
-                    <router-link :to="`/product/${card.id}`" class="btn">Подробнее</router-link>
-                    <div>
-<!--                        <p class="card-status">{{ card.status.title }}</p>-->
-                        <p class="card-price">{{ card.price }} ₽</p>
-                    </div>
+                    <p>Описание:</p>
+                    <p class="card-description">{{ card.description || '' }}</p>
                 </div>
 
             </div>
         </div>
-<!--        <div class="card-image-wrap col-12 col-md-4">-->
-<!--            <img :src="card.images[0]" class="card-image" alt="product-card" />-->
-<!--        </div>-->
+        <div class="col-12 col-md-2">
+            <div  >
+
+                    <p class="card-price">{{ card.price }} ₽</p>
+            
+                <router-link :to="`/product/${card.id}`" class="btn">Подробнее</router-link>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -40,9 +61,6 @@ export default {
                         title: ''
                     },
                     description: '',
-                    status: {
-                        title: ''
-                    },
                     price: ''
                 }
             }
